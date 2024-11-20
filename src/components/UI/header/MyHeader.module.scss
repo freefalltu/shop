@@ -1,0 +1,35 @@
+.header {
+    width: 100vw;
+    height: 90px;
+    border: none;
+    background-color: #484283;
+    color: white;
+    position: relative;
+}
+
+.header__container {
+    margin: 0 auto;
+    width: 90vw;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container__logo {
+    width: 164px;
+    height: 44px;
+    font-size: 30px;
+    line-height: 44px;
+    font-weight: bold;
+}
+
+.nav__btn, .container__logo {
+    text-decoration: none;
+    color: white;
+}
+
+.nav__btn:not(:last-child) {
+    margin-right: 20px;
+}
