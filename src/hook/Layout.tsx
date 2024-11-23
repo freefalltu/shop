@@ -5,7 +5,7 @@ import MyFooter from "../components/UI/footer/MyFooter"
 
 const Layout = () => {
     return (
-        <div className="wrapper">
+        <div id="Main" className="wrapper">
             <div className="wrapper__header">
                 <MyHeader />
             </div>

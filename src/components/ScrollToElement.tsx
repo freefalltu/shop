@@ -16,7 +16,7 @@ const ScrollToAnchor = () => {
                 document
                     .getElementById(lastHash.current)
                     ?.scrollIntoView({behavior: 'smooth', block: 'start'})
-            }, 500)
+            }, 100)
         }
 
     }, [location])

@@ -8,7 +8,7 @@ const Catalogpage = () => {
     useTitle("Catalog | Goods4you");
 
   return (
-    <div id="Main" className="container">
+    <div className="container">
       <div className="container__header">
         <div className="header__catalog">
           <hr className="header__catalog-line" />
