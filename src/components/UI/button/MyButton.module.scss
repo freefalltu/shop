@@ -1,0 +1,21 @@
+.myBtn {
+    border: none;
+    background-color: #F14F4F;
+    min-width: 148px;
+    min-height: 62px;
+    padding: 20px 50px;
+    border-radius: 4px;
+    gap: 10px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #8C2828;
+    }
+
+    &:disabled {
+        background-color: #F8AFAF;
+    }
+}
