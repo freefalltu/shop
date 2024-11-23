@@ -19,7 +19,7 @@ const headerCatalog = () => {
           </pre>
           <div className={cl.catalog__btn}>
             <Link to="/#Catalog">
-              <MyButton>Go to shopping</MyButton>
+              <MyButton className={cl.myBtn} view="text" size="big">Go to shopping</MyButton>
             </Link>
           </div>
           <p className={cl.catalog__textBack}>Goods4you</p>

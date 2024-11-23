@@ -1,22 +1,26 @@
-.myBtn {
-    border: none;
-    background-color: #F14F4F;
-    min-width: 148px;
-    min-height: 62px;
-    padding: 20px 50px;
-    border-radius: 4px;
-    gap: 10px;
-    font-size: 16px;
-    line-height: 22px;
-    font-weight: 400;
-    cursor: pointer;
-    color: white;
+.text{
+    padding:20px 50px;
+}
 
-    &:hover {
-        background-color: #8C2828;
-    }
+.icon {
+    padding: 25px;
+}
 
-    &:disabled {
-        background-color: #F8AFAF;
-    }
+.small{
+    height: 62px;
+}
+
+.big{
+    padding:0 60px;
+    height: 70px;
+}
+
+.icon.small{
+    width: 50px;
+    height: 50px;
+}
+
+.icon.big{
+    width: 60px;
+    height: 60px;
 }

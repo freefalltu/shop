@@ -1,12 +1,24 @@
-import classes from './MyButton.module.scss'
+import { ReactNode } from 'react'
+import cn from 'classnames'
+import cl from './MyButton.module.scss'
 
 interface MyButtonProps {
-    children: string
+    children: ReactNode
+    className?: string;
+    onClick?: () => void;
+    view?: 'text' | 'icon';
+    size?: 'big' | 'small';
   }
 
-const MyButton: React.FC<MyButtonProps> = ({children, ...props}) => {
+const MyButton: React.FC<MyButtonProps> = ({
+    children,
+    className,
+    onClick,
+    view = 'text',
+    size = 'small',
+    }) => {
     return (
-        <button {...props} className={classes.myBtn}>
+        <button className={cn(className, cl[view], cl[size])} onClick={onClick}>
             {children}
         </button>
     )
