@@ -1,0 +1,48 @@
+.header__catalog {
+    margin: 0 auto;
+    width: 80vw;
+    position: relative;
+}
+
+.catalog__line {
+    color: white;
+    background-color: #fff;
+    height: 1px;
+    width: 80vw;
+}
+
+.catalog__title {
+    margin-top: 9%;
+    font-size: 36px;
+    line-height: 50px;
+    font-weight: 400;
+    z-index: 2;
+}
+
+.catalog__text {
+    margin-top: 3%;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    z-index: 2;
+}
+
+.catalog__btn {
+    position: relative;
+    margin-top: 3%;
+    z-index: 2;
+}
+
+.catalog__textBack {
+    margin: 0;
+    width: 60vw;
+    position: absolute;
+    top: 8vw;
+    left: 3vw;
+    font-weight: bold;
+    font-size: 200px;
+    line-height: 300px;
+    text-align: center;
+    opacity: 12%;
+    z-index: 1;
+}

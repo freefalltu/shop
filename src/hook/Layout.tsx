@@ -1,19 +1,19 @@
 import { Outlet } from "react-router-dom"
-import MyHeader from "../components/UI/header/MyHeader"
-import MyFooter from "../components/UI/footer/MyFooter"
+import Footer from "../components/footer/Footer"
+import Header from "../components/header/Header"
 
 
 const Layout = () => {
     return (
         <div id="Main" className="wrapper">
             <div className="wrapper__header">
-                <MyHeader />
+                <Header />
             </div>
             <main className="wrapper__container">
                 <Outlet />
             </main>
             <div className="wrapper__footer">
-                <MyFooter />
+                <Footer />
             </div>
         </div>
     )
