@@ -10,7 +10,7 @@ const App: React.FC = () => {
   return (
     <Routes>
       <Route path='/' element={<Layout />}>
-        <Route index element={<Catalogpage />} />
+        <Route index element={<Catalogpage />}/>
         <Route path='product/:id' element={<Productpage />}/>
         <Route path='cart' element={<Cartpage />}/>
         <Route path='*' element={<Notfoundpage />}/>
