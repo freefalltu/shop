@@ -1,7 +1,8 @@
 import useTitle from "../hook/useTitle";
 import MyButton from "../components/UI/button/MyButton";
-import MyFaq from "../components/UI/faq/MyFaq";
+import MyFaq from "../components/UI/faqInfo/MyFaq";
 import { Link } from "react-router-dom";
+import Catalog from "../components/catalog/Catalog";
 
 const Catalogpage = () => {
 
@@ -30,8 +31,8 @@ const Catalogpage = () => {
           <p className="header__catalog-text-back">Goods4you</p>
         </div>
       </div>
-      <div id="Catalog" className="container__content">
-        hello
+      <div id="Catalog" className="container__catalog">
+        <Catalog/>
       </div>
       <div id="FAQ" className="container__faq">
             <div className="faq__catalog">
