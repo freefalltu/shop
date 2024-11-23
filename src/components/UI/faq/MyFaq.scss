@@ -36,7 +36,6 @@
     z-index: 2;
 }
 
-.container__btn,
 .container__btn::after,
 .container__btn::before {
     position: absolute;
@@ -53,10 +52,21 @@
 
 .container__btn::after {
     top: 50%;
+    height: 3px;
 }
 
 .container__btn::before {
+    top: 50%;
     transform: rotate(90deg) translate(0, 0);
+    height: 3px;
+}
+
+.container__btn.active::after {
+    transform: rotate(45deg) translate(0, 0);
+}
+
+.container__btn.active::before {
+    transform: rotate(-45deg) translate(0, 0);
     height: 3px;
 }
 

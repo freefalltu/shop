@@ -10,8 +10,6 @@ const MyFaq: React.FC<MyFaq> = ({question, answer}) => {
     
     const [myFaqActive, setMyFaqActive] = useState(false)
 
-    console.log(myFaqActive)
-
     return (
         <div className={myFaqActive ? 'faq active' : 'faq'}>
             <div className={'faq__container'}>

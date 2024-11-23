@@ -1,4 +1,4 @@
-import useTitle from "../components/hooks/useTitle"
+import useTitle from "../hook/useTitle"
 
 
 const Notfoundpage = () => {

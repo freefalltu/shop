@@ -32,6 +32,7 @@
 .nav__btn, .container__logo {
     text-decoration: none;
     color: white;
+    cursor: pointer;
 }
 
 .nav__btn:not(:last-child) {
