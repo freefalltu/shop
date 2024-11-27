@@ -29,6 +29,10 @@
     transform: translate(-50%, -50%);
 }
 
+.item {
+    max-width: 370px;
+}
+
 .item__content {
     display: flex;
     justify-content: space-between;
@@ -37,7 +41,16 @@
     position: relative;
 }
 
+.contentInfo {
+    text-wrap: nowrap;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .content__title {
+    text-decoration: none;
+    color: #444B58;
     font-size: 18px;
     font-weight: 500;
     line-height: 20px;

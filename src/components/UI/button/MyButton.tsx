@@ -3,7 +3,7 @@ import cn from 'classnames'
 import cl from './MyButton.module.scss'
 
 interface MyButtonProps {
-    children: ReactNode
+    children: ReactNode;
     className?: string;
     onClick?: () => void;
     view?: 'text' | 'icon';

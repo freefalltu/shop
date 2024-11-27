@@ -4,7 +4,8 @@
     border: none;
     background-color: #484283;
     color: white;
-    position: relative;
+    // position: fixed;
+    // z-index: 5;
 }
 
 .header__container {
@@ -25,23 +26,59 @@
     font-weight: 700;
 }
 
-.nav__btn, .container__logo {
+.nav__btn, .nav__btnCart, .container__logo {
     text-decoration: none;
     color: white;
     cursor: pointer;
 }
 
-.nav__btn {
+.nav__btn, .nav__btnCart {
     font-size: 14px;
     line-height: 20px;
     font-weight: 500;
 }
 
-.nav__btn:not(:last-child) {
+// .nav__btn:not(:last-child) {
+//     margin-right: 40px;
+// }
+
+.nav__btn {
     margin-right: 40px;
 }
 
-.nav__btn:hover {
+.nav__btn:hover, .nav__btnCart:hover {
     text-decoration: underline;
     opacity: 80%;
+}
+
+.nav__btnCart {
+    margin-right: 20px;
+    position: relative;
+    width: 60px;
+}
+
+.btn__img {
+    position: absolute;
+    top: 0;
+    right: 15px;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+}
+
+.btn__counter {
+    width: 15px;
+    height: 15px;
+    background-color: #F14F4F;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding-top: 4px;
+    text-align: center;
+    font-size: 9px;
+    line-height: 8px;
 }
