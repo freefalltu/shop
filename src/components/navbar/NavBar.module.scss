@@ -42,7 +42,7 @@
 //     margin-right: 40px;
 // }
 
-.nav__btn {
+.nav__btn:not(:last-child) {
     margin-right: 40px;
 }
 
