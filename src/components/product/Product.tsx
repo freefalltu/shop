@@ -37,16 +37,18 @@ const Product = () => {
         <p className={cl.info__warranty}>1 month warranty</p>
         <p className={cl.info__ships}>Ships in 1 month</p>
         <div className={cl.info__counter}>
-            <div className={cl.counter__counts}>
-                <div className={cl.count__wrapper}>
-                    <p className={cl.new__count}>$7.17</p>
-                    <span className={cl.old__count}>$9.99</span>
-                </div>
-                <hr className={cl.count__line}/>
-                <p className={cl.discount}>Your discount:</p>
-                <p className={cl.discount__percent}>14.5%</p>
+          <div className={cl.counter__counts}>
+            <div className={cl.count__wrapper}>
+              <p className={cl.new__count}>$7.17</p>
+              <span className={cl.old__count}>$9.99</span>
             </div>
-            <MyButton className={cl.myBtn} view="text" size="big">Add to cart</MyButton>
+            <hr className={cl.count__line} />
+            <p className={cl.discount}>Your discount:</p>
+            <p className={cl.discount__percent}>14.5%</p>
+          </div>
+          <MyButton className={cl.myBtn} view="text" size="big">
+            Add to cart
+          </MyButton>
         </div>
       </div>
     </div>

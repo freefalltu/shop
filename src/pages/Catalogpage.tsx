@@ -3,11 +3,8 @@ import Catalog from "../components/catalog/Catalog";
 import Faq from "../components/faq/Faq";
 import HeaderCatalog from "../components/headerCatalog/HeaderCatalog";
 
-
-
 const Catalogpage = () => {
-
-    useTitle("Catalog | Goods4you");
+  useTitle("Catalog | Goods4you");
 
   return (
     <div className="container">

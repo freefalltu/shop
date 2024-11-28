@@ -1,11 +1,8 @@
-import useTitle from "../hook/useTitle"
-
+import useTitle from "../hook/useTitle";
 
 const Notfoundpage = () => {
-    useTitle('Not found page')
-    return (
-        <div>not found</div>
-    )
-}
+  useTitle("Not found page");
+  return <div>not found</div>;
+};
 
-export default Notfoundpage
+export default Notfoundpage;
