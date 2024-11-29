@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./FaqInfo.scss";
 
-interface MyFaq {
+interface FaqInfo {
   question: string;
   answer: string;
 }
 
-const MyFaq: React.FC<MyFaq> = ({ question, answer }) => {
+const FaqInfo: React.FC<FaqInfo> = ({ question, answer }) => {
   const [myFaqActive, setMyFaqActive] = useState(false);
 
   return (
@@ -40,4 +40,4 @@ const MyFaq: React.FC<MyFaq> = ({ question, answer }) => {
   );
 };
 
-export default MyFaq;
+export default FaqInfo;
