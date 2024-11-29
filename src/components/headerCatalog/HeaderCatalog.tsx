@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import MyButton from "../UI/button/MyButton";
+import MyButton from "../UI/button/Button";
 import cl from "./HeaderCatalog.module.scss";
 
 const headerCatalog = () => {

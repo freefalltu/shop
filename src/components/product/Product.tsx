@@ -2,7 +2,7 @@ import cl from "./Product.module.scss";
 import mainPhoto from "../../img/product/main_photo_product.svg";
 import photo from "../../img/product/small_photo_product.svg";
 import rating from "../../img/product/Rating.svg";
-import MyButton from "../UI/button/MyButton";
+import MyButton from "../UI/button/Button";
 
 const Product = () => {
   return (

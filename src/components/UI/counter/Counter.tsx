@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import cl from './Counter.module.scss'
 import React, { useState } from 'react'
-import MyButton from '../button/MyButton'
+import MyButton from '../button/Button'
 
 interface CounterProps {
     size?: 'medium' | 'large';

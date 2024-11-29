@@ -1,6 +1,6 @@
 import cl from "./CatalogItem.module.scss";
 import img from "../../img/CatalogItem.svg";
-// import MyButton from '../UI/button/MyButton'
+// import Button from '../UI/button/Button'
 // import imgCart from '../../img/icon-cart.svg'
 import Counter from "../UI/counter/Counter";
 import { Link } from "react-router-dom";
@@ -22,9 +22,9 @@ const CatalogItem = () => {
           <p className={cl.content__price}>$110</p>
         </div>
         <Counter size="medium" />
-        {/* <MyButton className={cl.myBtn} view='icon' size='small'>
+        {/* <Button className={cl.myBtn} view='icon' size='small'>
                     <img src={imgCart} className={cl.button__img} alt="" />
-                </MyButton> */}
+                </Button> */}
       </div>
     </div>
   );
