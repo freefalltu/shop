@@ -1,8 +1,8 @@
 import cl from "./Product.module.scss";
-import mainPhoto from "../../img/product/main_photo_product.svg";
-import photo from "../../img/product/small_photo_product.svg";
-import rating from "../../img/product/Rating.svg";
-import MyButton from "../UI/button/Button";
+import mainPhoto from "src/img/product/main_photo_product.svg";
+import photo from "src/img/product/small_photo_product.svg";
+import rating from "src/img/product/Rating.svg";
+import Button from "../UI/button/Button";
 
 const Product = () => {
   return (
@@ -46,9 +46,9 @@ const Product = () => {
             <p className={cl.discount}>Your discount:</p>
             <p className={cl.discount__percent}>14.5%</p>
           </div>
-          <MyButton className={cl.myBtn} view="text" size="big">
+          <Button className={cl.myBtn} view="text" size="big">
             Add to cart
-          </MyButton>
+          </Button>
         </div>
       </div>
     </div>
