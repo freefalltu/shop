@@ -21,7 +21,7 @@ const CatalogItem = () => {
           </Link>
           <p className={cl.content__price}>$110</p>
         </div>
-        <Counter size="medium" />
+        <Counter children={0} size="medium" />
         {/* <Button className={cl.myBtn} view='icon' size='small'>
                     <img src={imgCart} className={cl.button__img} alt="" />
                 </Button> */}

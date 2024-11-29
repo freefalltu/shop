@@ -16,7 +16,7 @@ const Cart = () => {
               </p>
               <p className={cl.container__price}>$110</p>
             </div>
-            <Counter size="large" />
+            <Counter children={0} size="large" />
             <p className={cl.product__delete}>Delete</p>
           </div>
           <div className={cl.product}>
@@ -27,7 +27,7 @@ const Cart = () => {
               </p>
               <p className={cl.container__price}>$110</p>
             </div>
-            <Counter size="large" />
+            <Counter children={0} size="large" />
             <p className={cl.product__delete}>Delete</p>
           </div>
           <div className={cl.product}>
@@ -38,7 +38,7 @@ const Cart = () => {
               </p>
               <p className={cl.container__price}>$110</p>
             </div>
-            <Counter size="large" />
+            <Counter children={0} size="large" />
             <p className={cl.product__delete}>Delete</p>
           </div>
         </div>
