@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "../hook/Layout";
-import Catalogpage from "../pages/Catalogpage";
-import Productpage from "../pages/Productpage";
-import Cartpage from "../pages/Cartpage";
-import Notfoundpage from "../pages/Notfoundpage";
+import Catalogpage from "../pages/CatalogPage";
+import Productpage from "../pages/ProductPage";
+import Cartpage from "../pages/CartPage";
+import Notfoundpage from "../pages/NotfoundPage";
 
 const PageRouter = () => {
   return (
