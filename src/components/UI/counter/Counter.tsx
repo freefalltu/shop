@@ -1,7 +1,7 @@
 import cn from "classnames";
 import cl from "./Counter.module.scss";
 import React, { useState } from "react";
-import MyButton from "../button/Button";
+import Button from "../button/Button";
 
 interface CounterProps {
   size?: "medium" | "large";
@@ -21,21 +21,21 @@ const Counter: React.FC<CounterProps> = ({ size = "medium", children }) => {
 
   return (
     <div className={cl.counter}>
-      <MyButton
+      <Button
         className={cn(cl.myBtn, cl[size])}
         onClick={decrement}
         view="icon"
       >
         <div className={cl.minus} />
-      </MyButton>
+      </Button>
       <span>{count} items</span>
-      <MyButton
+      <Button
         className={cn(cl.myBtn, cl[size])}
         onClick={increment}
         view="icon"
       >
         <div className={cl.plus} />
-      </MyButton>
+      </Button>
     </div>
   );
 };
