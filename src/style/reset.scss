@@ -1,0 +1,23 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: none;
+	font-family: 'Jost';
+    box-sizing: border-box;
+}
+
+*::before,
+*::after {
+	box-sizing: border-box;
+
+}
+ 
+footer, header, main, h1, p, div, section {
+	display: block;
+}
+
+body {
+	margin: 0 auto;
+	padding: 0;
+	box-sizing: border-box;
+  }
