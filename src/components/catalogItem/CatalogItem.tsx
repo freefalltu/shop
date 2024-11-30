@@ -1,11 +1,11 @@
 import cl from "./CatalogItem.module.scss";
 import img from "../../img/CatalogItem.svg";
 // import Button from '../UI/button/Button'
-// import imgCart from '../../img/icon-cart.svg'
-import Counter from "../UI/counter/Counter";
+// import imgCart from '../../img/icon-cart.svg';
 import { Link } from "react-router-dom";
+import { Counter } from "../UI/counter";
 
-const CatalogItem = () => {
+export const CatalogItem = () => {
   return (
     <div className={cl.item}>
       <Link className={cl.item__img} to="/product">
@@ -29,5 +29,3 @@ const CatalogItem = () => {
     </div>
   );
 };
-
-export default CatalogItem;

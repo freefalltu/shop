@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import cn from "classnames";
 import cl from "./Button.module.scss";
 
@@ -10,7 +10,7 @@ interface ButtonProps {
   size?: "big" | "small";
 }
 
-const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<ButtonProps> = ({
   children,
   className,
   onClick,
@@ -23,5 +23,3 @@ const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
-
-export default Button;

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import MyButton from "../UI/button/Button";
 import cl from "./HeaderCatalog.module.scss";
+import { Button } from "../UI/button";
 
-const headerCatalog = () => {
+export const HeaderCatalog = () => {
   return (
     <div className={cl.header__catalog}>
       <hr className={cl.catalog__line} />
@@ -18,14 +18,12 @@ const headerCatalog = () => {
       </pre>
       <div className={cl.catalog__btn}>
         <Link to="/#Catalog">
-          <MyButton className={cl.myBtn} view="text" size="big">
+          <Button className={cl.myBtn} view="text" size="big">
             Go to shopping
-          </MyButton>
+          </Button>
         </Link>
       </div>
       <p className={cl.catalog__textBack}>Goods4you</p>
     </div>
   );
 };
-
-export default headerCatalog;

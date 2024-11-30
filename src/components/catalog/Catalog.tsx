@@ -1,9 +1,9 @@
-import Button from "../UI/button/Button";
-import Input from "../UI/input/Input";
 import cl from "./Catalog.module.scss";
-import CatalogItem from "../catalogItem/CatalogItem";
+import { Button } from "../UI/button";
+import { Input } from "../UI/input";
+import { CatalogItem } from "../catalogItem";
 
-const Catalog = () => {
+export const Catalog = () => {
   return (
     <div className={cl.catalog}>
       <h1 className={cl.catalog__title}>Catalog</h1>
@@ -32,5 +32,3 @@ const Catalog = () => {
     </div>
   );
 };
-
-export default Catalog;

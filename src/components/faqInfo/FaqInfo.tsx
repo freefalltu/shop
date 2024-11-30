@@ -6,7 +6,7 @@ interface FaqInfo {
   answer: string;
 }
 
-const FaqInfo: React.FC<FaqInfo> = ({ question, answer }) => {
+export const FaqInfo: React.FC<FaqInfo> = ({ question, answer }) => {
   const [myFaqActive, setMyFaqActive] = useState(false);
 
   return (
@@ -39,5 +39,3 @@ const FaqInfo: React.FC<FaqInfo> = ({ question, answer }) => {
     </div>
   );
 };
-
-export default FaqInfo;

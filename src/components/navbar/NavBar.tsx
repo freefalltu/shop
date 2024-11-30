@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import classes from "./NavBar.module.scss";
-import counter from "../../img/icon-cart.svg";
+import counter from "src/img/icon-cart.svg";
 
-const NavBar = () => {
+export const NavBar = () => {
   return (
     <header className={classes.header}>
       <div className={classes.header__container}>
@@ -29,5 +29,3 @@ const NavBar = () => {
     </header>
   );
 };
-
-export default NavBar;

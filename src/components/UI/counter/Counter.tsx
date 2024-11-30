@@ -1,14 +1,17 @@
 import cn from "classnames";
 import cl from "./Counter.module.scss";
 import React, { useState } from "react";
-import Button from "../button/Button";
+import { Button } from "../button";
 
 interface CounterProps {
   size?: "medium" | "large";
   children: number;
 }
 
-const Counter: React.FC<CounterProps> = ({ size = "medium", children }) => {
+export const Counter: React.FC<CounterProps> = ({
+  size = "medium",
+  children,
+}) => {
   const [count, setCount] = useState(children);
   const increment = () => {
     setCount((value) => value + 1);
@@ -39,5 +42,3 @@ const Counter: React.FC<CounterProps> = ({ size = "medium", children }) => {
     </div>
   );
 };
-
-export default Counter;

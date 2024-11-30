@@ -2,9 +2,9 @@ import cl from "./Product.module.scss";
 import mainPhoto from "src/img/product/main_photo_product.svg";
 import photo from "src/img/product/small_photo_product.svg";
 import rating from "src/img/product/Rating.svg";
-import Button from "../UI/button/Button";
+import { Button } from "../UI/button";
 
-const Product = () => {
+export const Product = () => {
   return (
     <div className={cl.product}>
       <div className={cl.product__img}>
@@ -54,5 +54,3 @@ const Product = () => {
     </div>
   );
 };
-
-export default Product;

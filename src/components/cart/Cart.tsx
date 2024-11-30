@@ -1,8 +1,8 @@
+import { Counter } from "../UI/counter";
 import cl from "./Cart.module.scss";
-import photo from "../../img/cart/photo_cart.svg";
-import Counter from "../UI/counter/Counter";
+import photo from "src/img/cart/photo_cart.svg";
 
-const Cart = () => {
+export const Cart = () => {
   return (
     <div className={cl.cart}>
       <h1 className={cl.cart__title}>My cart</h1>
@@ -61,5 +61,3 @@ const Cart = () => {
     </div>
   );
 };
-
-export default Cart;

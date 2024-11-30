@@ -1,4 +1,4 @@
-import Product from "../components/product/Product";
+import { Product } from "src/components/product";
 import useTitle from "../hook/useTitle";
 
 const Productpage = () => {
