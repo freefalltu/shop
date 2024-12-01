@@ -7,7 +7,7 @@ interface TextProps {
   tag: "span" | "p";
   className: string;
   fontSize?: "s" | "m" | "l" | "xl" | "xxl";
-  fontWeight?: "regular" | "medium" | "semibold";
+  fontWeight?: "regular" | "medium" | "semiBold";
 }
 
 export const Text: React.FC<TextProps> = ({

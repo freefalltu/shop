@@ -5,9 +5,8 @@
 }
 
 .cart__title {
-    font-size: 36px;
+    color: #444B58;
     line-height: 56px;
-    font-weight: 700;
     text-align:left;
     margin-bottom: 50px;
 }
@@ -46,16 +45,13 @@
 .container__title {
     margin-top: 25px;
     color: #444B58;
-    font-size: 16px;
     line-height: 22px;
-    font-weight: 600;
 }
 
 .container__price {
+    font-size: 14px;
     color: #444B58;
-    font-size: 18px;
     line-height: 26px;
-    font-weight: 400;
 }
 
 .product__delete {
@@ -70,70 +66,4 @@
     &:hover {
         text-decoration: underline;
     }
-}
-
-.price {
-    width: 30%;
-    margin-left: 60px;
-}
-
-.total__count, .discount, .total__price {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.total__count {
-    margin-bottom: 15px;
-}
-
-.count__text {
-    color: #B2B5BB;
-    font-size: 20px;
-    line-height: 30px;
-    font-weight: 400;
-}
-
-.count__cost {
-    color: #444B58;
-    font-size: 20px;
-    line-height: 30px;
-    font-weight: 400;
-}
-
-.discount__text {
-    color: #B2B5BB;
-    font-size: 20px;
-    line-height: 30px;
-    font-weight: 600;
-}
-
-.discount__cost {
-    color: #444B58;
-    font-size: 20px;
-    line-height: 30px;
-    font-weight: 700;
-}
-
-.price__line {
-    color: #E5E5E5;
-    background-color: #E5E5E5;
-    height: 1px;
-    width: 100%;
-    margin-top: 30px;
-    margin-bottom: 15px;
-}
-
-.price__text {
-    color: #B2B5BB;
-    font-size: 24px;
-    line-height: 36px;
-    font-weight: 600;
-}
-
-.price__cost {
-    color: #444B58;
-    font-size: 24px;
-    line-height: 36px;
-    font-weight: 700;
 }

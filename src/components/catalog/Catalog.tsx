@@ -2,11 +2,19 @@ import cl from "./Catalog.module.scss";
 import { Button } from "../UI/button";
 import { Input } from "../UI/input";
 import { CatalogItem } from "../catalogItem";
+import { Title } from "../UI/title";
 
 export const Catalog = () => {
   return (
     <div className={cl.catalog}>
-      <h1 className={cl.catalog__title}>Catalog</h1>
+      <Title
+        className={cl.catalog__title}
+        tag="h1"
+        fontSize="xxl"
+        fontWeight="Bold"
+      >
+        Catalog
+      </Title>
       <div className={cl.catalog__input}>
         <Input />
       </div>
