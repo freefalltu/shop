@@ -44,8 +44,12 @@
 
 .container__title {
     margin-top: 25px;
-    color: #444B58;
     line-height: 22px;
+}
+
+.title {
+    text-decoration: none;
+    color: #444B58;
 }
 
 .container__price {

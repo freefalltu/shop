@@ -4,6 +4,7 @@ import { Title } from "../UI/title";
 import cl from "./Cart.module.scss";
 import photo from "src/img/cart/photo_cart.svg";
 import { CartPrice } from "./cartPrice";
+import { Link } from "react-router-dom";
 
 export const Cart = () => {
   return (
@@ -27,7 +28,9 @@ export const Cart = () => {
                 fontSize="m"
                 fontWeight="Bold"
               >
-                Essence Mascara Lash Princess
+                <Link className={cl.title} to="/product">
+                  Essence Mascara Lash Princess
+                </Link>
               </Title>
               <Text
                 className={cl.container__price}
@@ -52,7 +55,9 @@ export const Cart = () => {
                 fontSize="m"
                 fontWeight="Bold"
               >
-                Essence Mascara Lash Princess
+                <Link className={cl.title} to="/product">
+                  Essence Mascara Lash Princess
+                </Link>
               </Title>
               <Text
                 className={cl.container__price}
@@ -77,7 +82,9 @@ export const Cart = () => {
                 fontSize="m"
                 fontWeight="Bold"
               >
-                Essence Mascara Lash Princess
+                <Link className={cl.title} to="/product">
+                  Essence Mascara Lash Princess
+                </Link>
               </Title>
               <Text
                 className={cl.container__price}
