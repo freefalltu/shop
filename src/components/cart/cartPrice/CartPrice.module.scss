@@ -1,0 +1,57 @@
+.price {
+    width: 30%;
+    margin-left: 60px;
+}
+
+.total__count, .discount, .total__price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.total__count {
+    margin-bottom: 15px;
+}
+
+.count__text {
+    color: #B2B5BB;
+    line-height: 30px;
+}
+
+.count__cost {
+    color: #444B58;
+    line-height: 30px;
+}
+
+.discount__text {
+    color: #B2B5BB;
+    line-height: 30px;
+}
+
+.discount__cost {
+    color: #444B58;
+    line-height: 30px;
+}
+
+.price__line {
+    color: #E5E5E5;
+    background-color: #E5E5E5;
+    height: 1px;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.price__text {
+    color: #B2B5BB;
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 600;
+}
+
+.price__cost {
+    color: #444B58;
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 700;
+}

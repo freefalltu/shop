@@ -1,0 +1,72 @@
+.counter {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 5;
+}
+
+.counter span {
+    font-size:14px;
+    font-weight:300;
+    line-height:1.4;
+    width: 50px;
+}
+
+.medium {
+    width: 50px;
+    height: 50px;
+}
+
+.large {
+    width: 72px;
+    height: 60px;
+}
+
+.myBtn {
+    border: none;
+    background-color: #F14F4F;
+    position:relative;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 2;
+    &:hover {
+        background-color: #8C2828;
+    }
+
+    &:disabled {
+        background-color: #F8AFAF;
+    }
+}
+
+.minus::before{
+    content:'';
+    width: 18px;
+    height: 3px;
+    background: white;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.plus::before{
+    content:'';
+    width: 18px;
+    height: 3px;
+    background: white;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.plus::after{
+    content:'';
+    width: 18px;
+    height: 3px;
+    background: white;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(90deg);
+}
