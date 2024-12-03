@@ -3,7 +3,7 @@ import { Faq } from "src/components/faq";
 import { HeaderCatalog } from "src/components/headerCatalog";
 import useTitle from "../hook/useTitle";
 
-const Catalogpage = () => {
+export const Catalogpage = () => {
   useTitle("Catalog | Goods4you");
 
   return (
@@ -20,5 +20,3 @@ const Catalogpage = () => {
     </div>
   );
 };
-
-export default Catalogpage;
