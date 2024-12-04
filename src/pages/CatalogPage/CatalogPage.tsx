@@ -1,9 +1,9 @@
 import { Catalog } from "src/components/catalog";
 import { Faq } from "src/components/faq";
 import { HeaderCatalog } from "src/components/headerCatalog";
-import useTitle from "../hook/useTitle";
+import useTitle from "src/hook/useTitle";
 
-export const Catalogpage = () => {
+export const CatalogPage = () => {
   useTitle("Catalog | Goods4you");
 
   return (

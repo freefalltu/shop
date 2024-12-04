@@ -1,7 +1,7 @@
 import { Cart } from "src/components/cart";
-import useTitle from "../hook/useTitle";
+import useTitle from "src/hook/useTitle";
 
-export const Cartpage = () => {
+export const CartPage = () => {
   useTitle("My cart | Goods4you");
   return <Cart />;
 };
