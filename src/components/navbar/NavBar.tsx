@@ -6,7 +6,7 @@ import { useAppSelector } from "src/hook/redux";
 export const NavBar = () => {
   const { user } = useAppSelector((state) => state.userSlice);
 
-  const { catalogData } = useAppSelector((state) => state.productSlice);
+  const totalQuantity = user.carts[0]?.totalQuantity;
 
   return (
     <nav className={classes.header}>
@@ -24,7 +24,11 @@ export const NavBar = () => {
           <Link className={classes.nav__btnCart} to="cart">
             <span>Cart</span>
             <img className={classes.btn__img} src={counter} alt="" />
-            <div className={classes.btn__counter}>0</div>
+            {user.carts.length > 0 ? (
+              <div className={classes.btn__counter}>{totalQuantity}</div>
+            ) : (
+              <div />
+            )}
           </Link>
           <a className={classes.nav__btn} href="#">
             Johnson Smith
