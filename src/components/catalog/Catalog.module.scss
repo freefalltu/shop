@@ -14,17 +14,10 @@
     margin-bottom: 50px;
 }
 
-.catalog__products {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: start;
-    margin-bottom: 40px;
-    gap: 20px;
-}
-
 .catalog__btn {
     display: flex;
     justify-content: center;
+    margin-top: 50px;
 }
 
 .myBtn {
@@ -48,4 +41,19 @@
     &:disabled {
         background-color: #F8AFAF;
     }
+}
+
+.noElements {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(3,370px);
+    gap: 20px;
+}
+
+a {
+    text-decoration: none;
 }

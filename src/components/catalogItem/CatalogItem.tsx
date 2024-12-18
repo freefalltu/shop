@@ -1,30 +1,71 @@
 import cl from "./CatalogItem.module.scss";
-import img from "../../img/CatalogItem.svg";
-// import Button from '../UI/button/Button'
-// import imgCart from '../../img/icon-cart.svg';
-import { Link } from "react-router-dom";
+import { Button } from "../UI/button";
+import imgCart from "src/img/icon-cart.svg";
 import { Counter } from "../UI/counter";
+import { Product } from "src/models/Product";
+import { Title } from "../UI/title";
+import { Text } from "../UI/text";
+import { useAppSelector } from "src/hook/redux";
 
-export const CatalogItem = () => {
+interface CatalogItemProps {
+  product: Product;
+}
+
+export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
+  const discount = +(
+    (product.price * product.discountPercentage) /
+    100
+  ).toFixed(1);
+
+  const { products } = useAppSelector((state) => state.userSlice.user.carts[0]);
+
+  const isInCart = products.find(
+    (carts: { id: number }) => carts.id === product.id,
+  );
+
   return (
     <div className={cl.item}>
-      <Link className={cl.item__img} to="/product">
-        <img src={img} alt="" />
+      <div className={cl.item__img}>
+        <img src={product.thumbnail} alt="" />
         <div className={cl.img__bg}>
           <span>Show details</span>
         </div>
-      </Link>
+      </div>
       <div className={cl.item__content}>
         <div className={cl.contentInfo}>
-          <Link className={cl.content__title} to="/product">
-            Essence Mascara Lash Princess
-          </Link>
-          <p className={cl.content__price}>$110</p>
+          <Title
+            className={cl.content__title}
+            tag="h2"
+            fontSize="m"
+            fontWeight="semiBold"
+          >
+            {product.title}
+          </Title>
+          <Text
+            className={cl.content__price}
+            tag="span"
+            fontSize="m"
+            fontWeight="regular"
+          >
+            ${(product.price - discount).toFixed(1)}
+          </Text>
         </div>
-        <Counter children={0} size="medium" />
-        {/* <Button className={cl.myBtn} view='icon' size='small'>
-                    <img src={imgCart} className={cl.button__img} alt="" />
-                </Button> */}
+        {isInCart ? (
+          <Counter
+            children={isInCart?.quantity}
+            size="medium"
+            onClick={(event) => event.preventDefault()}
+          />
+        ) : (
+          <Button
+            className={cl.myBtn}
+            view="icon"
+            size="small"
+            onClick={(event) => event.preventDefault()}
+          >
+            <img src={imgCart} className={cl.button__img} alt="" />
+          </Button>
+        )}
       </div>
     </div>
   );
