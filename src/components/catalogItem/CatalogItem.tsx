@@ -36,8 +36,8 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
           <Title
             className={cl.content__title}
             tag="h2"
-            fontSize="m"
-            fontWeight="semiBold"
+            fontSize="l"
+            fontWeight="Bold"
           >
             {product.title}
           </Title>

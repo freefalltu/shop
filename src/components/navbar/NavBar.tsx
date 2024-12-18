@@ -1,12 +1,17 @@
 import { Link } from "react-router-dom";
 import classes from "./NavBar.module.scss";
 import counter from "src/img/icon-cart.svg";
+import { useAppSelector } from "src/hook/redux";
 
 export const NavBar = () => {
+  const { user } = useAppSelector((state) => state.userSlice);
+
+  const { catalogData } = useAppSelector((state) => state.productSlice);
+
   return (
-    <header className={classes.header}>
+    <nav className={classes.header}>
       <div className={classes.header__container}>
-        <Link className={classes.container__logo} to="/#Main">
+        <Link className={classes.container__logo} to="/">
           Goods4you
         </Link>
         <nav className={classes.nav}>
@@ -26,6 +31,6 @@ export const NavBar = () => {
           </a>
         </nav>
       </div>
-    </header>
+    </nav>
   );
 };
