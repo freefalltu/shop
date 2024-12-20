@@ -1,47 +1,30 @@
 import cl from "./Catalog.module.scss";
-import { Button } from "../UI/button";
-import { Input } from "../UI/input";
-import { CatalogItem } from "../catalogItem";
-import { Title } from "../UI/title";
-import { useAppDispatch, useAppSelector } from "src/hook/redux";
-import { ChangeEvent, useEffect, useState } from "react";
-import { resetProducts } from "src/store/reducers/productSlice";
-import { fetchProduct } from "src/store/reducers/actionCreators";
-import { Text } from "../UI/text";
+import { CatalogItem } from "src/components/catalogItem";
+import { Title } from "src/components/UI/title";
 import { Product } from "src/models/Product";
 import { Link } from "react-router-dom";
+import { Text } from "src/components/UI/text";
+import { Button } from "src/components/UI/button";
+import { useAppDispatch } from "src/hook/redux";
+import { resetProducts } from "src/store/reducers/productSlice";
+import { useGetCatalogQuery } from "src/api/query/catalogApi";
+import { useState } from "react";
+import { Input } from "src/components/UI/input";
 
 export const Catalog = () => {
   const dispatch = useAppDispatch();
-
-  const { catalogData, isLoading, error, skip, total } = useAppSelector(
-    (state) => state.productSlice,
-  );
-
-  const [searchValue, setSearchValue] = useState<string>("");
-
-  const search = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.target.value);
-    dispatch(resetProducts());
-  };
+  const [search, setSearch] = useState<string>("");
+  const [limit, setLimit] = useState<number>(12);
 
   const showMore = () => {
-    dispatch(
-      fetchProduct({
-        q: searchValue,
-        skip: skip + 12,
-      }),
-    );
+    setLimit(limit + 12);
   };
 
-  useEffect(() => {
-    const sourceProduct = dispatch(
-      fetchProduct({ q: searchValue, skip: skip }),
-    );
-    return () => {
-      sourceProduct.abort();
-    };
-  }, [searchValue]);
+  const {
+    data: content,
+    error,
+    isLoading,
+  } = useGetCatalogQuery({ query: search, limit: limit, skip: 0 });
 
   return (
     <div className={cl.catalog}>
@@ -54,11 +37,11 @@ export const Catalog = () => {
         Catalog
       </Title>
       <div className={cl.catalog__input}>
-        <Input onChange={search} value={searchValue} />
+        <Input onChange={(e) => setSearch(e.target.value)} value={search} />
       </div>
       {isLoading && <h1>Идёт загрузка</h1>}
-      {error && <h1>{error}</h1>}
-      {catalogData.products.length === 0 ? (
+      {error && <h1>Error</h1>}
+      {content?.products.length === 0 ? (
         <Text
           className={cl.noElements}
           fontSize="xl"
@@ -69,20 +52,19 @@ export const Catalog = () => {
         </Text>
       ) : (
         <div className={cl.content}>
-          {catalogData.products.map((product: Product) => (
-            <Link
-              key={product.id}
-              to={`/product/${product.id}`}
-              onClick={() => {
-                catalogData.products = [];
-              }}
-            >
-              <CatalogItem product={product} />
-            </Link>
-          ))}
+          {content &&
+            content.products.map((product: Product) => (
+              <Link
+                key={product.id}
+                to={`/product/${product.id}`}
+                onClick={() => dispatch(resetProducts())}
+              >
+                <CatalogItem product={product} />
+              </Link>
+            ))}
         </div>
       )}
-      {catalogData.products.length >= total ? (
+      {content?.products.length === content?.total ? (
         <div />
       ) : (
         <div className={cl.catalog__btn}>

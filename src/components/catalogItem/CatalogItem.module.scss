@@ -44,18 +44,20 @@
 }
 
 .contentInfo {
-    text-wrap: nowrap;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    min-width: 0;
+    max-width: 20rem;
 }
 
 .content__title {
+    min-width: 0;
     color: #444B58;
     font-size: 18px;
     font-weight: 600;
     line-height: 20px;
     margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .item:hover {

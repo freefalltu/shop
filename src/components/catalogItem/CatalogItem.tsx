@@ -6,6 +6,7 @@ import { Product } from "src/models/Product";
 import { Title } from "../UI/title";
 import { Text } from "../UI/text";
 import { useAppSelector } from "src/hook/redux";
+import { useState } from "react";
 
 interface CatalogItemProps {
   product: Product;
@@ -17,11 +18,15 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
     100
   ).toFixed(1);
 
-  const { products } = useAppSelector((state) => state.userSlice.user.carts[0]);
+  const { user } = useAppSelector((state) => state.userSlice);
 
-  const isInCart = products.find(
-    (carts: { id: number }) => carts.id === product.id,
-  );
+  const checkCart = user.carts[0]?.products;
+
+  const isInCart = checkCart?.find((carts) => carts.id === product.id);
+
+  const initialQuantity = isInCart ? isInCart.quantity : 0;
+
+  const [quantityValue, setQuantityValue] = useState(initialQuantity);
 
   return (
     <div className={cl.item}>
@@ -52,16 +57,30 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
         </div>
         {isInCart ? (
           <Counter
-            children={isInCart?.quantity}
+            children={quantityValue}
             size="medium"
-            onClick={(event) => event.preventDefault()}
+            onClick={(event) => {
+              event.stopPropagation();
+              event.preventDefault();
+            }}
+            onMinusClick={() => {
+              if (quantityValue > 0) {
+                setQuantityValue((value) => value - 1);
+              }
+            }}
+            onPlusClick={() => {
+              setQuantityValue((value) => value + 1);
+            }}
           />
         ) : (
           <Button
             className={cl.myBtn}
             view="icon"
             size="small"
-            onClick={(event) => event.preventDefault()}
+            onClick={(event) => {
+              event.stopPropagation();
+              event.preventDefault();
+            }}
           >
             <img src={imgCart} className={cl.button__img} alt="" />
           </Button>
