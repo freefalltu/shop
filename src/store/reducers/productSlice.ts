@@ -1,6 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { Product } from "src/models/Product";
-import { fetchProduct } from "./actionCreators";
 
 interface ProductsData {
   products: Product[];
@@ -38,29 +37,6 @@ export const productSlice = createSlice({
       state.catalogData.products = [];
       state.skip = 0;
     },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchProduct.pending.type, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(
-        fetchProduct.fulfilled.type,
-        (state, action: PayloadAction<ProductsData>) => {
-          state.isLoading = false;
-          state.error = "";
-          state.catalogData.products.push(...action.payload.products);
-          state.skip = action.payload.skip;
-          state.total = action.payload.total;
-        },
-      )
-      .addCase(
-        fetchProduct.rejected.type,
-        (state, action: PayloadAction<string>) => {
-          state.isLoading = false;
-          state.error = action.payload;
-        },
-      );
   },
 });
 

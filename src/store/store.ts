@@ -1,17 +1,19 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import productSlice from "./reducers/productSlice";
 import userSlice from "./reducers/userSlice";
-import infoProductSlice from "./reducers/infoProductSlice";
+import { baseApi } from "src/api/query/baseApi";
 
 const rootReducer = combineReducers({
   productSlice,
   userSlice,
-  infoProductSlice,
+  [baseApi.reducerPath]: baseApi.reducer,
 });
 
 export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(baseApi.middleware),
   });
 };
 
