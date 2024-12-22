@@ -9,4 +9,5 @@ export interface Product {
   shippingInformation: string;
   description: string;
   discountPercentage: number;
+  images: string[];
 }
