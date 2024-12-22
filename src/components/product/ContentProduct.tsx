@@ -4,6 +4,7 @@ import { useGetSingleProductQuery } from "src/api/query/contentProductApi";
 import { BlockImg } from "./blockImg";
 import { BlockInfo } from "./blockInfo/BlockInfo";
 import useTitle from "src/hook/useTitle";
+import { Title } from "../UI/title";
 
 export const ContentProduct = () => {
   const { id } = useParams<string>();
@@ -12,7 +13,11 @@ export const ContentProduct = () => {
 
   return (
     <div className={cl.content}>
-      {isLoading && <h1>Идет загрузка</h1>}
+      {isLoading && (
+        <Title className={cl.loading} tag="h1" fontSize="xxl" fontWeight="Bold">
+          Идет загрузка
+        </Title>
+      )}
       {error && <Navigate to="*" />}
       {content && (
         <div className={cl.product}>

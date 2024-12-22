@@ -54,6 +54,10 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
           <Counter
             children={quantityValue}
             size="medium"
+            onClick={(event) => {
+              event.stopPropagation();
+              event.preventDefault();
+            }}
             onMinusClick={() => {
               if (quantityValue > 0) {
                 setQuantityValue((value) => value - 1);
@@ -64,7 +68,15 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
             }}
           />
         ) : (
-          <Button className={cl.myBtn} view="icon" size="small">
+          <Button
+            className={cl.myBtn}
+            view="icon"
+            size="small"
+            onClick={(event) => {
+              event.stopPropagation();
+              event.preventDefault();
+            }}
+          >
             <img src={imgCart} className={cl.button__img} alt="" />
           </Button>
         )}
