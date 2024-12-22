@@ -3,9 +3,9 @@ import cl from "./Faq.module.scss";
 
 export const Faq = () => {
   return (
-    <div className={cl.faq__catalog}>
-      <h1 className={cl.faq__title}>FAQ</h1>
-      <hr className={cl.faq__line} />
+    <div className={cl.catalog}>
+      <h1 className={cl.title}>FAQ</h1>
+      <hr className={cl.line} />
       <FaqInfo
         question="How can I track the status of my order?"
         answer={`After placing your order, you will receive a confirmation email

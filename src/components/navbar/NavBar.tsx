@@ -10,27 +10,27 @@ export const NavBar = () => {
 
   return (
     <nav className={classes.header}>
-      <div className={classes.header__container}>
-        <Link className={classes.container__logo} to="/">
+      <div className={classes.container}>
+        <Link className={classes.logo} to="/">
           Goods4you
         </Link>
         <nav className={classes.nav}>
-          <Link className={classes.nav__btn} data-goto="/" to="/#Catalog">
+          <Link className={classes.btn} data-goto="/" to="/#Catalog">
             Catalog
           </Link>
-          <Link className={classes.nav__btn} to="/#FAQ">
+          <Link className={classes.btn} to="/#FAQ">
             FAQ
           </Link>
-          <Link className={classes.nav__btnCart} to="cart">
+          <Link className={classes.btnCart} to="cart">
             <span>Cart</span>
-            <img className={classes.btn__img} src={counter} alt="" />
+            <img className={classes.img} src={counter} alt="" />
             {user.carts.length > 0 ? (
-              <div className={classes.btn__counter}>{totalQuantity}</div>
+              <div className={classes.counter}>{totalQuantity}</div>
             ) : (
               <div />
             )}
           </Link>
-          <a className={classes.nav__btn} href="#">
+          <a className={classes.btn} href="#">
             Johnson Smith
           </a>
         </nav>

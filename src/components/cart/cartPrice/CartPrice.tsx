@@ -4,9 +4,9 @@ import cl from "./CartPrice.module.scss";
 export const CartPrice = () => {
   return (
     <div className={cl.price}>
-      <div className={cl.total__count}>
+      <div className={cl.totalCount}>
         <Text
-          className={cl.count__text}
+          className={cl.countText}
           tag="p"
           fontSize="l"
           fontWeight="regular"
@@ -14,7 +14,7 @@ export const CartPrice = () => {
           Total count
         </Text>
         <Text
-          className={cl.count__cost}
+          className={cl.countCost}
           tag="p"
           fontSize="l"
           fontWeight="regular"
@@ -24,7 +24,7 @@ export const CartPrice = () => {
       </div>
       <div className={cl.discount}>
         <Text
-          className={cl.discount__text}
+          className={cl.discountText}
           tag="p"
           fontSize="l"
           fontWeight="semiBold"
@@ -32,7 +32,7 @@ export const CartPrice = () => {
           Price without discount
         </Text>
         <Text
-          className={cl.discount__cost}
+          className={cl.discountCost}
           tag="p"
           fontSize="l"
           fontWeight="semiBold"
@@ -40,10 +40,10 @@ export const CartPrice = () => {
           $700
         </Text>
       </div>
-      <hr className={cl.price__line} />
-      <div className={cl.total__price}>
+      <hr className={cl.priceLine} />
+      <div className={cl.totalPrice}>
         <Text
-          className={cl.price__text}
+          className={cl.priceText}
           tag="p"
           fontSize="xl"
           fontWeight="semiBold"
@@ -51,7 +51,7 @@ export const CartPrice = () => {
           Total price
         </Text>
         <Text
-          className={cl.price__cost}
+          className={cl.priceCost}
           tag="p"
           fontSize="xl"
           fontWeight="semiBold"

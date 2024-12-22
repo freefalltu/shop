@@ -20,9 +20,9 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
 
   const { user } = useAppSelector((state) => state.userSlice);
 
-  const checkCart = user.carts[0]?.products;
-
-  const isInCart = checkCart?.find((carts) => carts.id === product.id);
+  const isInCart = user.carts[0]?.products?.find(
+    (carts) => carts.id === product.id,
+  );
 
   const initialQuantity = isInCart ? isInCart.quantity : 0;
 
@@ -30,24 +30,19 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
 
   return (
     <div className={cl.item}>
-      <div className={cl.item__img}>
+      <div className={cl.image}>
         <img src={product.thumbnail} alt="" />
-        <div className={cl.img__bg}>
+        <div className={cl.background}>
           <span>Show details</span>
         </div>
       </div>
-      <div className={cl.item__content}>
-        <div className={cl.contentInfo}>
-          <Title
-            className={cl.content__title}
-            tag="h2"
-            fontSize="l"
-            fontWeight="Bold"
-          >
+      <div className={cl.content}>
+        <div className={cl.info}>
+          <Title className={cl.title} tag="h2" fontSize="l" fontWeight="Bold">
             {product.title}
           </Title>
           <Text
-            className={cl.content__price}
+            className={cl.price}
             tag="span"
             fontSize="m"
             fontWeight="regular"
@@ -59,10 +54,6 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
           <Counter
             children={quantityValue}
             size="medium"
-            onClick={(event) => {
-              event.stopPropagation();
-              event.preventDefault();
-            }}
             onMinusClick={() => {
               if (quantityValue > 0) {
                 setQuantityValue((value) => value - 1);
@@ -73,15 +64,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
             }}
           />
         ) : (
-          <Button
-            className={cl.myBtn}
-            view="icon"
-            size="small"
-            onClick={(event) => {
-              event.stopPropagation();
-              event.preventDefault();
-            }}
-          >
+          <Button className={cl.myBtn} view="icon" size="small">
             <img src={imgCart} className={cl.button__img} alt="" />
           </Button>
         )}

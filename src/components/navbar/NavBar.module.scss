@@ -8,7 +8,7 @@
     // z-index: 5;
 }
 
-.header__container {
+.container {
     margin: 0 auto;
     width: 80vw;
     height: 100%;
@@ -18,7 +18,7 @@
     align-items: center;
 }
 
-.container__logo {
+.logo {
     width: 164px;
     height: 44px;
     font-size: 30px;
@@ -26,38 +26,34 @@
     font-weight: 700;
 }
 
-.nav__btn, .nav__btnCart, .container__logo {
+.btn, .btnCart, .logo {
     text-decoration: none;
     color: white;
     cursor: pointer;
 }
 
-.nav__btn, .nav__btnCart {
+.btn, .btnCart {
     font-size: 14px;
     line-height: 20px;
     font-weight: 500;
 }
 
-// .nav__btn:not(:last-child) {
-//     margin-right: 40px;
-// }
-
-.nav__btn:not(:last-child) {
+.btn:not(:last-child) {
     margin-right: 40px;
 }
 
-.nav__btn:hover, .nav__btnCart:hover {
+.btn:hover, .btnCart:hover {
     text-decoration: underline;
     opacity: 80%;
 }
 
-.nav__btnCart {
+.btnCart {
     margin-right: 20px;
     position: relative;
     width: 60px;
 }
 
-.btn__img {
+.img {
     position: absolute;
     top: 0;
     right: 15px;
@@ -68,7 +64,7 @@
     flex-direction: row;
 }
 
-.btn__counter {
+.counter {
     width: 15px;
     height: 15px;
     background-color: #F14F4F;

@@ -5,14 +5,11 @@ import { Product } from "src/models/Product";
 import { Link } from "react-router-dom";
 import { Text } from "src/components/UI/text";
 import { Button } from "src/components/UI/button";
-import { useAppDispatch } from "src/hook/redux";
-import { resetProducts } from "src/store/reducers/productSlice";
 import { useGetCatalogQuery } from "src/api/query/catalogApi";
 import { useState } from "react";
 import { Input } from "src/components/UI/input";
 
 export const Catalog = () => {
-  const dispatch = useAppDispatch();
   const [search, setSearch] = useState<string>("");
   const [limit, setLimit] = useState<number>(12);
 
@@ -29,18 +26,18 @@ export const Catalog = () => {
   return (
     <div className={cl.catalog}>
       <Title
-        className={cl.catalog__title}
+        className={cl.catalogTitle}
         tag="h1"
         fontSize="xxl"
         fontWeight="Bold"
       >
         Catalog
       </Title>
-      <div className={cl.catalog__input}>
+      <div className={cl.catalogInput}>
         <Input onChange={(e) => setSearch(e.target.value)} value={search} />
       </div>
-      {isLoading && <h1>Идёт загрузка</h1>}
-      {error && <h1>Error</h1>}
+      {isLoading && <h1>Loading...</h1>}
+      {error && <h1>Failed to load items</h1>}
       {content?.products.length === 0 ? (
         <Text
           className={cl.noElements}
@@ -54,11 +51,7 @@ export const Catalog = () => {
         <div className={cl.content}>
           {content &&
             content.products.map((product: Product) => (
-              <Link
-                key={product.id}
-                to={`/product/${product.id}`}
-                onClick={() => dispatch(resetProducts())}
-              >
+              <Link key={product.id} to={`/product/${product.id}`}>
                 <CatalogItem product={product} />
               </Link>
             ))}
@@ -67,7 +60,7 @@ export const Catalog = () => {
       {content?.products.length === content?.total ? (
         <div />
       ) : (
-        <div className={cl.catalog__btn}>
+        <div className={cl.catalogBtn}>
           <Button
             className={cl.myBtn}
             view="text"

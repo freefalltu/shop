@@ -4,15 +4,15 @@ import classes from "./Footer.module.scss";
 export const Footer = () => {
   return (
     <footer className={classes.footer}>
-      <div className={classes.footer__container}>
-        <Link className={classes.container__logo} to="/">
+      <div className={classes.container}>
+        <Link className={classes.logo} to="/">
           Goods4you
         </Link>
         <nav>
-          <Link className={classes.nav__btn} to="/#Catalog">
+          <Link className={classes.btn} to="/#Catalog">
             Catalog
           </Link>
-          <Link className={classes.nav__btn} to="/#FAQ">
+          <Link className={classes.btn} to="/#FAQ">
             FAQ
           </Link>
         </nav>
