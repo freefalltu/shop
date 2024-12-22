@@ -1,0 +1,1 @@
+export { BlockImg } from "./BlockImg";

@@ -1,0 +1,29 @@
+.miniatures {
+    overflow: scroll;
+    padding: 10px;
+    height: 6rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.big {
+    width: 30rem;
+    height: 30rem;
+}
+
+.small {
+    cursor: pointer;
+    padding:2px;
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    &:not(:last-child) {
+        margin-right: 20px;
+    }
+    &:hover {
+        border-radius: 4px;
+        outline: 3px solid #C4C4C4;
+    }
+}
