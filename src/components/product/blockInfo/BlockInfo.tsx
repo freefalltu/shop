@@ -2,10 +2,10 @@ import { IProduct } from "src/models/Product";
 import cl from "./BlockInfo.module.scss";
 import { Button } from "src/components/UI/button";
 import { Title } from "src/components/UI/title";
-import rating from "src/img/product/Rating.svg";
 import { useAppSelector } from "src/hook/redux";
 import { useState } from "react";
 import { Counter } from "src/components/UI/counter";
+import { Rating } from "src/components/UI/rating";
 
 interface BlockInfoProps {
   content: IProduct;
@@ -32,7 +32,14 @@ export const BlockInfo: React.FC<BlockInfoProps> = ({ content }) => {
         {content?.title}
       </Title>
       <div className={cl.rating}>
-        <img src={rating} alt="" />
+        <Rating
+          size={23}
+          activeColor="#F14F4F"
+          value={content.rating}
+          color="#D5D5D5"
+          isHalf={false}
+          edit={true}
+        />
         <span>electronics, selfie accessories</span>
       </div>
       <hr className={cl.line} />

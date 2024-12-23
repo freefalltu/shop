@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import classes from "./NavBar.module.scss";
 import counter from "src/img/icon-cart.svg";
-import { useAppSelector } from "src/hook/redux";
+import { useAppDispatch, useAppSelector } from "src/hook/redux";
+import { resetProducts } from "src/store/reducers/productSlice";
 
 export const NavBar = () => {
+  const dispatch = useAppDispatch();
   const { carts } = useAppSelector((state) => state.userSlice);
 
   return (
@@ -19,10 +21,16 @@ export const NavBar = () => {
           <Link className={classes.btn} to="/#FAQ">
             FAQ
           </Link>
-          <Link className={classes.btnCart} to="cart">
+          <Link
+            className={classes.btnCart}
+            to="cart"
+            onClick={() => {
+              dispatch(resetProducts());
+            }}
+          >
             <span>Cart</span>
             <img className={classes.img} src={counter} alt="" />
-            {carts.length > 0 ? (
+            {carts[0]?.totalQuantity > 0 ? (
               <div className={classes.counter}>{carts[0].totalQuantity}</div>
             ) : (
               <div />

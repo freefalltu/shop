@@ -10,4 +10,5 @@ export interface IProduct {
   description: string;
   discountPercentage: number;
   images: string[];
+  rating: number;
 }
