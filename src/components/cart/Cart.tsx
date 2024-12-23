@@ -9,21 +9,16 @@ import { Link } from "react-router-dom";
 export const Cart = () => {
   return (
     <div className={cl.cart}>
-      <Title
-        className={cl.cart__title}
-        tag="h1"
-        fontSize="xxl"
-        fontWeight="Bold"
-      >
+      <Title className={cl.title} tag="h1" fontSize="xxl" fontWeight="Bold">
         My cart
       </Title>
-      <div className={cl.cart__wrapper}>
+      <div className={cl.cartWrapper}>
         <div className={cl.products}>
           <div className={cl.product}>
             <img src={photo} alt="" />
-            <div className={cl.product__container}>
+            <div className={cl.productContainer}>
               <Title
-                className={cl.container__title}
+                className={cl.containerTitle}
                 tag="h2"
                 fontSize="m"
                 fontWeight="Bold"
@@ -33,7 +28,7 @@ export const Cart = () => {
                 </Link>
               </Title>
               <Text
-                className={cl.container__price}
+                className={cl.containerPrice}
                 tag="p"
                 fontSize="m"
                 fontWeight="regular"
@@ -42,61 +37,7 @@ export const Cart = () => {
               </Text>
             </div>
             <Counter children={0} size="large" />
-            <Text className={cl.product__delete} tag="p">
-              Delete
-            </Text>
-          </div>
-          <div className={cl.product}>
-            <img src={photo} alt="" />
-            <div className={cl.product__container}>
-              <Title
-                className={cl.container__title}
-                tag="h2"
-                fontSize="m"
-                fontWeight="Bold"
-              >
-                <Link className={cl.title} to="/product">
-                  Essence Mascara Lash Princess
-                </Link>
-              </Title>
-              <Text
-                className={cl.container__price}
-                tag="p"
-                fontSize="m"
-                fontWeight="regular"
-              >
-                $110
-              </Text>
-            </div>
-            <Counter children={0} size="large" />
-            <Text className={cl.product__delete} tag="p">
-              Delete
-            </Text>
-          </div>
-          <div className={cl.product}>
-            <img src={photo} alt="" />
-            <div className={cl.product__container}>
-              <Title
-                className={cl.container__title}
-                tag="h2"
-                fontSize="m"
-                fontWeight="Bold"
-              >
-                <Link className={cl.title} to="/product">
-                  Essence Mascara Lash Princess
-                </Link>
-              </Title>
-              <Text
-                className={cl.container__price}
-                tag="p"
-                fontSize="m"
-                fontWeight="regular"
-              >
-                $110
-              </Text>
-            </div>
-            <Counter children={0} size="large" />
-            <Text className={cl.product__delete} tag="p">
+            <Text className={cl.productDelete} tag="p">
               Delete
             </Text>
           </div>

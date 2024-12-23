@@ -1,41 +1,37 @@
 import cn from "classnames";
 import cl from "./Counter.module.scss";
-import React, { useState } from "react";
+import React, { MouseEventHandler } from "react";
 import { Button } from "../button";
 
 interface CounterProps {
   size?: "medium" | "large";
   children: number;
+  onClick?: MouseEventHandler<HTMLDivElement>;
+  onMinusClick?: MouseEventHandler<HTMLButtonElement>;
+  onPlusClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 export const Counter: React.FC<CounterProps> = ({
   size = "medium",
   children,
+  onClick,
+  onMinusClick,
+  onPlusClick,
 }) => {
-  const [count, setCount] = useState(children);
-  const increment = () => {
-    setCount((value) => value + 1);
-  };
-  const decrement = () => {
-    if (count > 0) {
-      setCount((value) => value - 1);
-    }
-  };
-
   return (
-    <div className={cl.counter}>
+    <div className={cl.counter} onClick={onClick}>
       <Button
         className={cn(cl.myBtn, cl[size])}
-        onClick={decrement}
         view="icon"
+        onClick={onMinusClick}
       >
         <div className={cl.minus} />
       </Button>
-      <span>{count} items</span>
+      <span>{children} items</span>
       <Button
         className={cn(cl.myBtn, cl[size])}
-        onClick={increment}
         view="icon"
+        onClick={onPlusClick}
       >
         <div className={cl.plus} />
       </Button>

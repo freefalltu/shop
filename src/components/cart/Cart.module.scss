@@ -4,14 +4,14 @@
     width: 80vw;
 }
 
-.cart__title {
+.title {
     color: #444B58;
     line-height: 56px;
     text-align:left;
     margin-bottom: 50px;
 }
 
-.cart__wrapper {
+.cartWrapper {
     width: 80vw;
     display: flex;
     flex-direction: row;
@@ -37,12 +37,12 @@
     }
 }
 
-.product__container {
+.productContainer {
     margin-left: 10px;
     margin-right: 30px;
 }
 
-.container__title {
+.containerTitle {
     margin-top: 25px;
     line-height: 22px;
 }
@@ -52,13 +52,13 @@
     color: #444B58;
 }
 
-.container__price {
+.containerPrice {
     font-size: 14px;
     color: #444B58;
     line-height: 26px;
 }
 
-.product__delete {
+.productDelete {
     margin-top: 40px;
     margin-left: 40px;
     height: 20px;

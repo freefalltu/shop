@@ -10,7 +10,7 @@ const PageRouter = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<CatalogPage />} />
-        <Route path="product/" element={<ProductPage />} />
+        <Route path="product/:id" element={<ProductPage />} />
         <Route path="cart" element={<CartPage />} />
         <Route path="*" element={<NotfoundPage />} />
       </Route>

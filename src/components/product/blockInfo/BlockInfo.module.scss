@@ -1,33 +1,16 @@
-.product {
-    margin-top: 50px;
-    width: 80vw;
-    display: flex;
-    flex-direction: row;
-    padding-bottom: 100px
-}
-
-.photo__small:not(:last-child) {
-    margin-right: 20px;
-}
-
-.photo__small:active {
-    border-radius: 4px;
-    outline: 3px solid #C4C4C4;
-}
-
-.product__info {
+.productInfo{
     margin-left: 50px;
     width: 100%;
 }
 
-.info__header {
+.header {
     color: #444B58;
     font-size: 36px;
     line-height: 56px;
     font-weight: 600;
 }
 
-.info__rating {
+.rating {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -38,7 +21,7 @@
     margin-top: 20px;
 }
 
-.info__line {
+.line {
     margin-top: 30px;
     color: #C4C4C4;
     background-color: #C4C4C4;
@@ -46,7 +29,7 @@
     width: 100%;
 }
 
-.info__line2 {
+.line2 {
     margin-top: 10px;
     color: #C4C4C4;
     background-color: #C4C4C4;
@@ -54,7 +37,7 @@
     width: 100%;
 }
 
-.info__quantity {
+.quantity {
     margin-top: 10px;
     color: #F14F4F;
     font-size: 18px;
@@ -62,7 +45,7 @@
     font-weight: 500px;
 }
 
-.info__descr {
+.descr {
     margin-top: 20px;
     color: #444B58;
     opacity: 80%;
@@ -71,7 +54,7 @@
     font-weight: 300;
 }
 
-.info__warranty {
+.warranty {
     margin-top: 30px;
     color: #646464;
     font-size: 16px;
@@ -79,7 +62,7 @@
     font-weight: 400;
 }
 
-.info__ships {
+.ships {
     margin-top: 10px;
     color: #646464;
     font-size: 16px;
@@ -87,7 +70,7 @@
     font-weight: 400;
 }
 
-.info__counter {
+.counter {
     margin-top: 30px;
     width: 100%;
     background-color: #0000000A;
@@ -97,21 +80,21 @@
     padding: 10px;
 }
 
-.counter__counts {
+.counts {
     margin-left: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.new__count {
+.newCount {
     color: #444B58;
     font-size: 36px;
     line-height: 40px;
     font-weight: 600;
 }
 
-.old__count {
+.oldCount {
     color: #646464;
     font-size: 16px;
     line-height: 20px;
@@ -119,7 +102,7 @@
     text-decoration: line-through;
 }
 
-.count__line {
+.countLine {
     color: #D5D5D5;
     background-color: #D5D5D5;
     height: 1px;
@@ -135,7 +118,7 @@
     transform: translate(-10px, 0);
 }
 
-.discount__percent {
+.discountPercent {
     color: #444B58;
     font-size: 16px;
     line-height: 24px;

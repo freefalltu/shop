@@ -1,31 +1,40 @@
 import { Link } from "react-router-dom";
 import classes from "./NavBar.module.scss";
 import counter from "src/img/icon-cart.svg";
+import { useAppSelector } from "src/hook/redux";
 
 export const NavBar = () => {
+  const { user } = useAppSelector((state) => state.userSlice);
+
+  const totalQuantity = user.carts[0]?.totalQuantity;
+
   return (
-    <header className={classes.header}>
-      <div className={classes.header__container}>
-        <Link className={classes.container__logo} to="/#Main">
+    <nav className={classes.header}>
+      <div className={classes.container}>
+        <Link className={classes.logo} to="/">
           Goods4you
         </Link>
         <nav className={classes.nav}>
-          <Link className={classes.nav__btn} data-goto="/" to="/#Catalog">
+          <Link className={classes.btn} data-goto="/" to="/#Catalog">
             Catalog
           </Link>
-          <Link className={classes.nav__btn} to="/#FAQ">
+          <Link className={classes.btn} to="/#FAQ">
             FAQ
           </Link>
-          <Link className={classes.nav__btnCart} to="cart">
+          <Link className={classes.btnCart} to="cart">
             <span>Cart</span>
-            <img className={classes.btn__img} src={counter} alt="" />
-            <div className={classes.btn__counter}>0</div>
+            <img className={classes.img} src={counter} alt="" />
+            {user.carts.length > 0 ? (
+              <div className={classes.counter}>{totalQuantity}</div>
+            ) : (
+              <div />
+            )}
           </Link>
-          <a className={classes.nav__btn} href="#">
+          <a className={classes.btn} href="#">
             Johnson Smith
           </a>
         </nav>
       </div>
-    </header>
+    </nav>
   );
 };

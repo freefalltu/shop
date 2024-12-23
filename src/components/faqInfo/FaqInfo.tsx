@@ -12,30 +12,16 @@ export const FaqInfo: React.FC<FaqInfo> = ({ question, answer }) => {
   return (
     <div className={myFaqActive ? "faq active" : "faq"}>
       <div
-        className="faq__container"
+        className="faqContainer"
         onClick={() => setMyFaqActive(!myFaqActive)}
       >
-        <p className="container__question">{question}</p>
-        <div
-          className={myFaqActive ? "container__btn active" : "container__btn"}
-        >
+        <p className="question">{question}</p>
+        <div className={myFaqActive ? "btn active" : "btn"}>
           <span />
         </div>
       </div>
-      <p
-        className={
-          myFaqActive ? "container__answer active" : "container__answer"
-        }
-      >
-        {answer}
-      </p>
-      <hr
-        className={
-          myFaqActive
-            ? "faq__catalog-line-after active"
-            : "faq__catalog-line-after"
-        }
-      />
+      <p className={myFaqActive ? "answer active" : "answer"}>{answer}</p>
+      <hr className={myFaqActive ? "line-after active" : "line-after"} />
     </div>
   );
 };
