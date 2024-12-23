@@ -1,9 +1,9 @@
-import { Product } from "src/models/Product";
+import { IProduct } from "src/models/Product";
 import { baseApi } from "./baseApi";
 
 export const contentProductApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    getSingleProduct: build.query<Product, string>({
+    getSingleProduct: build.query<IProduct, string>({
       query: (id) => `products/${id}`,
     }),
   }),

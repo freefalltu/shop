@@ -1,9 +1,9 @@
 import { useState } from "react";
 import cl from "./BlockImg.module.scss";
-import { Product } from "src/models/Product";
+import { IProduct } from "src/models/Product";
 
 interface BlockImgProps {
-  content: Product;
+  content: IProduct;
 }
 
 export const BlockImg: React.FC<BlockImgProps> = ({ content }) => {

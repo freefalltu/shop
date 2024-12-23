@@ -1,7 +1,7 @@
 import cl from "./Catalog.module.scss";
 import { CatalogItem } from "src/components/catalogItem";
 import { Title } from "src/components/UI/title";
-import { Product } from "src/models/Product";
+import { IProduct } from "src/models/Product";
 import { Link } from "react-router-dom";
 import { Text } from "src/components/UI/text";
 import { Button } from "src/components/UI/button";
@@ -50,9 +50,9 @@ export const Catalog = () => {
       ) : (
         <div className={cl.content}>
           {content &&
-            content.products.map((product: Product) => (
+            content.products.map((product: IProduct) => (
               <Link key={product.id} to={`/product/${product.id}`}>
-                <CatalogItem product={product} />
+                <CatalogItem content={product} />
               </Link>
             ))}
         </div>

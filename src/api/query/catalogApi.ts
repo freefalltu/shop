@@ -1,8 +1,8 @@
-import { Product } from "src/models/Product";
+import { IProduct } from "src/models/Product";
 import { baseApi } from "./baseApi";
 
 interface CatalogProduct {
-  products: Product[];
+  products: IProduct[];
   total: number;
   skip: number;
   limit: number;

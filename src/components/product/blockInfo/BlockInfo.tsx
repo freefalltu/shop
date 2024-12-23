@@ -1,4 +1,4 @@
-import { Product } from "src/models/Product";
+import { IProduct } from "src/models/Product";
 import cl from "./BlockInfo.module.scss";
 import { Button } from "src/components/UI/button";
 import { Title } from "src/components/UI/title";
@@ -8,7 +8,7 @@ import { useState } from "react";
 import { Counter } from "src/components/UI/counter";
 
 interface BlockInfoProps {
-  content: Product;
+  content: IProduct;
 }
 
 export const BlockInfo: React.FC<BlockInfoProps> = ({ content }) => {
@@ -17,13 +17,12 @@ export const BlockInfo: React.FC<BlockInfoProps> = ({ content }) => {
     100
   ).toFixed(1);
 
-  const { user } = useAppSelector((state) => state.userSlice);
+  const { carts } = useAppSelector((state) => state.userSlice);
 
-  const isInCart = user.carts[0]?.products?.find(
-    (carts) => carts.id === content.id,
-  );
+  const isInCart = carts[0]?.products?.find((item) => item.id === content.id);
 
-  const initialQuantity = isInCart ? isInCart.quantity : 0;
+  const initialQuantity =
+    isInCart?.quantity === undefined ? 0 : isInCart.quantity;
 
   const [quantityValue, setQuantityValue] = useState(initialQuantity);
 

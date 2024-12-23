@@ -2,36 +2,35 @@ import cl from "./CatalogItem.module.scss";
 import { Button } from "../UI/button";
 import imgCart from "src/img/icon-cart.svg";
 import { Counter } from "../UI/counter";
-import { Product } from "src/models/Product";
+import { IProduct } from "src/models/Product";
 import { Title } from "../UI/title";
 import { Text } from "../UI/text";
 import { useAppSelector } from "src/hook/redux";
 import { useState } from "react";
 
 interface CatalogItemProps {
-  product: Product;
+  content: IProduct;
 }
 
-export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
+export const CatalogItem: React.FC<CatalogItemProps> = ({ content }) => {
   const discount = +(
-    (product.price * product.discountPercentage) /
+    (content.price * content.discountPercentage) /
     100
   ).toFixed(1);
 
-  const { user } = useAppSelector((state) => state.userSlice);
+  const { carts } = useAppSelector((state) => state.userSlice);
 
-  const isInCart = user.carts[0]?.products?.find(
-    (carts) => carts.id === product.id,
-  );
+  const isInCart = carts[0]?.products?.find((item) => item.id === content.id);
 
-  const initialQuantity = isInCart ? isInCart.quantity : 0;
+  const initialQuantity =
+    isInCart?.quantity === undefined ? 0 : isInCart.quantity;
 
   const [quantityValue, setQuantityValue] = useState(initialQuantity);
 
   return (
     <div className={cl.item}>
       <div className={cl.image}>
-        <img src={product.thumbnail} alt="" />
+        <img src={content.thumbnail} alt="" />
         <div className={cl.background}>
           <span>Show details</span>
         </div>
@@ -39,7 +38,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
       <div className={cl.content}>
         <div className={cl.info}>
           <Title className={cl.title} tag="h2" fontSize="l" fontWeight="Bold">
-            {product.title}
+            {content.title}
           </Title>
           <Text
             className={cl.price}
@@ -47,7 +46,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
             fontSize="m"
             fontWeight="regular"
           >
-            ${(product.price - discount).toFixed(1)}
+            ${(content.price - discount).toFixed(1)}
           </Text>
         </div>
         {isInCart ? (

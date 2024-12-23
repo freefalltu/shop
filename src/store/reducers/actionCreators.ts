@@ -1,12 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchCartsByUsers } from "src/api/user-api";
-import { User } from "src/models/User";
+import { ICartsInfo } from "src/models/CartsInfo";
 
 export const fetchCartsByUser = createAsyncThunk<
-  User[],
+  ICartsInfo,
   { id: number },
   { rejectValue: string }
->(`carts/fetchUser`, async ({ id }, { rejectWithValue }) => {
+>(`carts/fetchCarts`, async ({ id }, { rejectWithValue }) => {
   try {
     const data = await fetchCartsByUsers(id);
     return data;

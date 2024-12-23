@@ -4,9 +4,7 @@ import counter from "src/img/icon-cart.svg";
 import { useAppSelector } from "src/hook/redux";
 
 export const NavBar = () => {
-  const { user } = useAppSelector((state) => state.userSlice);
-
-  const totalQuantity = user.carts[0]?.totalQuantity;
+  const { carts } = useAppSelector((state) => state.userSlice);
 
   return (
     <nav className={classes.header}>
@@ -24,8 +22,8 @@ export const NavBar = () => {
           <Link className={classes.btnCart} to="cart">
             <span>Cart</span>
             <img className={classes.img} src={counter} alt="" />
-            {user.carts.length > 0 ? (
-              <div className={classes.counter}>{totalQuantity}</div>
+            {carts.length > 0 ? (
+              <div className={classes.counter}>{carts[0].totalQuantity}</div>
             ) : (
               <div />
             )}
