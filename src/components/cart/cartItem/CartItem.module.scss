@@ -1,0 +1,64 @@
+.product {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    &:hover {
+        background-color: #F6F6F6;
+    }
+}
+
+.itemContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.image {
+    width: 5.5rem;
+    height: 5.5rem;
+}
+
+.productContainer {
+    margin-left: 10px;
+    margin-right: 30px;
+}
+
+.containerTitle {
+    margin-top: 25px;
+    line-height: 22px;
+}
+
+.title {
+    text-decoration: none;
+    color: #444B58;
+}
+
+.containerPrice {
+    font-size: 14px;
+    color: #444B58;
+    line-height: 26px;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productDelete {
+    margin-left: 40px;
+    margin-right: 10px;
+    height: 20px;
+    color: #B2B5BB;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+}
