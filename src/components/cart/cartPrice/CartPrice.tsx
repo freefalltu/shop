@@ -7,12 +7,6 @@ interface CartPriceProps {
 }
 
 export const CartPrice: React.FC<CartPriceProps> = ({ cart }) => {
-  const totalProducts = cart.totalProducts;
-  const totalPrice = cart.total;
-  const discountedTotal = cart.discountedTotal;
-  const discount = totalPrice - discountedTotal;
-  const price = totalPrice - discount;
-
   return (
     <div className={cl.price}>
       <div className={cl.totalCount}>
@@ -30,7 +24,7 @@ export const CartPrice: React.FC<CartPriceProps> = ({ cart }) => {
           fontSize="l"
           fontWeight="regular"
         >
-          {totalProducts} items
+          {cart.totalProducts} items
         </Text>
       </div>
       <div className={cl.discount}>
@@ -48,7 +42,7 @@ export const CartPrice: React.FC<CartPriceProps> = ({ cart }) => {
           fontSize="l"
           fontWeight="semiBold"
         >
-          ${discount.toFixed(1)}
+          ${cart.total.toFixed(1)}
         </Text>
       </div>
       <hr className={cl.priceLine} />
@@ -67,7 +61,7 @@ export const CartPrice: React.FC<CartPriceProps> = ({ cart }) => {
           fontSize="xl"
           fontWeight="semiBold"
         >
-          ${price.toFixed(1)}
+          ${cart.discountedTotal.toFixed(1)}
         </Text>
       </div>
     </div>

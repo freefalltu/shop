@@ -14,16 +14,16 @@ interface IsInCart {
 export const IsInCart: React.FC<IsInCart> = ({ content, icon }) => {
   const { carts } = useAppSelector((state) => state.userSlice);
 
-  const isInCart = carts[0]?.products?.find((item) => item.id === content.id);
+  const itemInCart = carts[0]?.products?.find((item) => item.id === content.id);
 
   const initialQuantity =
-    isInCart?.quantity === undefined ? 0 : isInCart.quantity;
+    itemInCart?.quantity === undefined ? 0 : itemInCart.quantity;
 
   const [quantityValue, setQuantityValue] = useState(initialQuantity);
 
   return (
     <div>
-      {isInCart ? (
+      {itemInCart ? (
         <Counter
           children={quantityValue}
           size="medium"
