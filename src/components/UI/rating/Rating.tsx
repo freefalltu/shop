@@ -1,11 +1,11 @@
-import ReactStars from "react-rating-stars-component";
+import ReactStars from "react-stars";
 
 interface RatingProps {
   activeColor?: string;
   size?: number;
   value?: number;
   color?: string;
-  isHalf?: boolean;
+  half?: boolean;
   edit?: boolean;
   onChange?: (newRating: number) => void;
 }
@@ -15,7 +15,7 @@ export const Rating: React.FC<RatingProps> = ({
   size,
   value,
   color,
-  isHalf,
+  half,
   edit,
   onChange,
 }) => {
@@ -23,10 +23,10 @@ export const Rating: React.FC<RatingProps> = ({
     <ReactStars
       onChange={onChange}
       size={size}
-      activeColor={activeColor}
       value={value}
-      color={color}
-      isHalf={isHalf}
+      color1={color}
+      color2={activeColor}
+      half={half}
       edit={edit}
     />
   );

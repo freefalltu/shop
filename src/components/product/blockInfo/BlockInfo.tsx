@@ -33,11 +33,11 @@ export const BlockInfo: React.FC<BlockInfoProps> = ({ content }) => {
       </Title>
       <div className={cl.rating}>
         <Rating
-          size={23}
+          size={25}
           activeColor="#F14F4F"
           value={content.rating}
           color="#D5D5D5"
-          isHalf={false}
+          half={false}
           edit={true}
         />
         <span>electronics, selfie accessories</span>
