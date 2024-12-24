@@ -1,11 +1,8 @@
 import { IProduct } from "src/models/Product";
 import cl from "./BlockInfo.module.scss";
-import { Button } from "src/components/UI/button";
 import { Title } from "src/components/UI/title";
-import { useAppSelector } from "src/hook/redux";
-import { useState } from "react";
-import { Counter } from "src/components/UI/counter";
 import { Rating } from "src/components/UI/rating";
+import { IsInCart } from "src/components/cart/isInCart";
 
 interface BlockInfoProps {
   content: IProduct;
@@ -16,15 +13,6 @@ export const BlockInfo: React.FC<BlockInfoProps> = ({ content }) => {
     ((content?.price ?? 0) * (content?.discountPercentage ?? 0)) /
     100
   ).toFixed(1);
-
-  const { carts } = useAppSelector((state) => state.userSlice);
-
-  const isInCart = carts[0]?.products?.find((item) => item.id === content.id);
-
-  const initialQuantity =
-    isInCart?.quantity === undefined ? 0 : isInCart.quantity;
-
-  const [quantityValue, setQuantityValue] = useState(initialQuantity);
 
   return (
     <div className={cl.productInfo}>
@@ -60,24 +48,7 @@ export const BlockInfo: React.FC<BlockInfoProps> = ({ content }) => {
           <p className={cl.discount}>Your discount:</p>
           <p className={cl.discountPercent}>{content.discountPercentage}%</p>
         </div>
-        {isInCart ? (
-          <Counter
-            children={quantityValue}
-            size="medium"
-            onMinusClick={() => {
-              if (quantityValue > 0) {
-                setQuantityValue((value) => value - 1);
-              }
-            }}
-            onPlusClick={() => {
-              setQuantityValue((value) => value + 1);
-            }}
-          />
-        ) : (
-          <Button className={cl.myBtn} view="text" size="big">
-            Add to cart
-          </Button>
-        )}
+        <IsInCart content={content} icon={false} />
       </div>
     </div>
   );
