@@ -8,6 +8,7 @@ interface ButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   view?: "text" | "icon";
   size?: "big" | "small";
+  type: "myBtnIcon" | "myBtnText";
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -16,9 +17,13 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
   view = "text",
   size = "small",
+  type = "myBtnText",
 }) => {
   return (
-    <button className={cn(className, cl[view], cl[size])} onClick={onClick}>
+    <button
+      className={cn(className, cl[view], cl[size], cl[type])}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

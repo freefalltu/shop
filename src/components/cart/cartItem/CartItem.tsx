@@ -26,7 +26,7 @@ export const CartItem: React.FC<CartItemProps> = ({ content }) => {
             fontSize="m"
             fontWeight="Bold"
           >
-            <Link className={cl.title} to="/product">
+            <Link className={cl.title} to={`/product/${content.id}`}>
               {content.title}
             </Link>
           </Title>

@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { Button } from "src/components/UI/button";
 import { Counter } from "src/components/UI/counter";
 import { useAppSelector } from "src/hook/redux";
 import cl from "./IsInCart.module.scss";
 import { IProduct } from "src/models/Product";
 import img from "src/img/icon-cart.svg";
+import useCounterState from "src/hook/useCounterState";
 
 interface IsInCart {
   content: IProduct;
@@ -14,12 +14,13 @@ interface IsInCart {
 export const IsInCart: React.FC<IsInCart> = ({ content, icon }) => {
   const { carts } = useAppSelector((state) => state.userSlice);
 
-  const itemInCart = carts[0]?.products?.find((item) => item.id === content.id);
+  const itemInCart = carts?.products?.find((item) => item.id === content.id);
 
   const initialQuantity =
     itemInCart?.quantity === undefined ? 0 : itemInCart.quantity;
 
-  const [quantityValue, setQuantityValue] = useState(initialQuantity);
+  const { quantityValue, onMinusClick, onPlusClick } =
+    useCounterState(initialQuantity);
 
   return (
     <div>
@@ -31,20 +32,14 @@ export const IsInCart: React.FC<IsInCart> = ({ content, icon }) => {
             event.stopPropagation();
             event.preventDefault();
           }}
-          onMinusClick={() => {
-            if (quantityValue > 0) {
-              setQuantityValue((value) => value - 1);
-            }
-          }}
-          onPlusClick={() => {
-            setQuantityValue((value) => value + 1);
-          }}
+          onMinusClick={onMinusClick}
+          onPlusClick={onPlusClick}
         />
       ) : (
         <div>
           {icon ? (
             <Button
-              className={cl.myBtnIcon}
+              type="myBtnIcon"
               view="icon"
               size="small"
               onClick={(event) => {
@@ -55,7 +50,7 @@ export const IsInCart: React.FC<IsInCart> = ({ content, icon }) => {
               <img src={img} className={cl.button__img} alt="" />
             </Button>
           ) : (
-            <Button className={cl.myBtnText} view="text" size="big">
+            <Button type="myBtnText" view="text" size="big">
               Add to cart
             </Button>
           )}

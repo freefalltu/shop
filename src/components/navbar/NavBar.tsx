@@ -30,8 +30,8 @@ export const NavBar = () => {
           >
             <span>Cart</span>
             <img className={classes.img} src={counter} alt="" />
-            {carts[0]?.totalQuantity > 0 ? (
-              <div className={classes.counter}>{carts[0].totalQuantity}</div>
+            {carts?.totalQuantity > 0 ? (
+              <div className={classes.counter}>{carts.totalQuantity}</div>
             ) : (
               <div />
             )}

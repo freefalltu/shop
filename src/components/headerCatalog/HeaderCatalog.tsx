@@ -18,7 +18,7 @@ export const HeaderCatalog = () => {
       </pre>
       <div className={cl.btn}>
         <Link to="/#Catalog">
-          <Button className={cl.myBtn} view="text" size="big">
+          <Button type="myBtnText" view="text" size="big">
             Go to shopping
           </Button>
         </Link>

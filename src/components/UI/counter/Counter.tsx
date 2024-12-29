@@ -1,4 +1,3 @@
-import cn from "classnames";
 import cl from "./Counter.module.scss";
 import React, { MouseEventHandler } from "react";
 import { Button } from "../button";
@@ -21,7 +20,8 @@ export const Counter: React.FC<CounterProps> = ({
   return (
     <div className={cl.counter} onClick={onClick}>
       <Button
-        className={cn(cl.myBtn, cl[size])}
+        className={cl[size]}
+        type="myBtnIcon"
         view="icon"
         onClick={onMinusClick}
       >
@@ -29,7 +29,8 @@ export const Counter: React.FC<CounterProps> = ({
       </Button>
       <span>{children} items</span>
       <Button
-        className={cn(cl.myBtn, cl[size])}
+        className={cl[size]}
+        type="myBtnIcon"
         view="icon"
         onClick={onPlusClick}
       >

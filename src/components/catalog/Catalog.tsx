@@ -61,12 +61,7 @@ export const Catalog = () => {
         <div />
       ) : (
         <div className={cl.catalogBtn}>
-          <Button
-            className={cl.myBtn}
-            view="text"
-            size="small"
-            onClick={showMore}
-          >
+          <Button type="myBtnText" view="text" size="small" onClick={showMore}>
             Show more
           </Button>
         </div>

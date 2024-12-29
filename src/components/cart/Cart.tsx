@@ -12,15 +12,15 @@ export const Cart = () => {
       <Title className={cl.title} tag="h1" fontSize="xxl" fontWeight="Bold">
         My cart
       </Title>
-      {carts.length > 0 ? (
+      {carts.totalQuantity > 0 ? (
         <div className={cl.cartWrapper}>
           <div className={cl.products}>
-            {carts[0].products.map((product) => (
+            {carts.products.map((product) => (
               <CartItem key={product.id} content={product} />
             ))}
           </div>
           <div>
-            <CartPrice cart={carts[0]} />
+            <CartPrice cart={carts} />
           </div>
         </div>
       ) : (
