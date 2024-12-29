@@ -12,7 +12,7 @@ export const NotfoundPage = () => {
         404 Page not found
       </Title>
       <Link to="/">
-        <Button view="text" size="big" className={cl.myBtn}>
+        <Button view="text" size="big" type="myBtnText">
           Return to main page
         </Button>
       </Link>
