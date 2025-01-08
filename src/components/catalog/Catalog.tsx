@@ -8,10 +8,13 @@ import { Button } from "src/components/UI/button";
 import { useGetCatalogQuery } from "src/api/query/catalogApi";
 import { useState } from "react";
 import { Input } from "src/components/UI/input";
+import { useDebounceCallback } from "usehooks-ts";
 
 export const Catalog = () => {
   const [search, setSearch] = useState<string>("");
   const [limit, setLimit] = useState<number>(12);
+
+  const debounced = useDebounceCallback(setSearch, 200);
 
   const showMore = () => {
     setLimit(limit + 12);
@@ -34,7 +37,7 @@ export const Catalog = () => {
         Catalog
       </Title>
       <div className={cl.catalogInput}>
-        <Input onChange={(e) => setSearch(e.target.value)} value={search} />
+        <Input onChange={(e) => debounced(e.target.value)} />
       </div>
       {isLoading && <h1>Loading...</h1>}
       {error && <h1>Failed to load items</h1>}
