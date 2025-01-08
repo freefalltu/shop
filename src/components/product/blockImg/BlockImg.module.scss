@@ -22,8 +22,9 @@
     &:not(:last-child) {
         margin-right: 20px;
     }
-    &:hover {
-        border-radius: 4px;
-        outline: 3px solid #C4C4C4;
-    }
+}
+
+.active {
+    border-radius: 4px;
+    outline: 3px solid #C4C4C4;
 }

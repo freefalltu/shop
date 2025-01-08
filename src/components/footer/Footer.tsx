@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <footer className={classes.footer}>
       <div className={classes.container}>
-        <Link className={classes.logo} to="/">
+        <Link className={classes.logo} to="/#Catalog">
           Goods4you
         </Link>
         <nav>
