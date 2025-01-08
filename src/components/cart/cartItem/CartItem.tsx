@@ -16,36 +16,43 @@ export const CartItem: React.FC<CartItemProps> = ({ content }) => {
   ).toFixed(1);
 
   return (
-    <div className={cl.product}>
-      <div className={cl.itemContainer}>
-        <img src={content.thumbnail} alt="" className={cl.image} />
-        <div className={cl.productContainer}>
-          <Title
-            className={cl.containerTitle}
-            tag="h2"
-            fontSize="m"
-            fontWeight="Bold"
-          >
-            <Link className={cl.title} to={`/product/${content.id}`}>
+    <Link className={cl.title} to={`/product/${content.id}`}>
+      <div className={cl.product}>
+        <div className={cl.itemContainer}>
+          <img src={content.thumbnail} alt="" className={cl.image} />
+          <div className={cl.productContainer}>
+            <Title
+              className={cl.containerTitle}
+              tag="h2"
+              fontSize="m"
+              fontWeight="Bold"
+            >
               {content.title}
-            </Link>
-          </Title>
+            </Title>
+            <Text
+              className={cl.containerPrice}
+              tag="p"
+              fontSize="m"
+              fontWeight="regular"
+            >
+              ${(content.price - discount).toFixed(1)}
+            </Text>
+          </div>
+        </div>
+        <div className={cl.buttonContainer}>
+          <IsInCart content={content} icon={true} />
           <Text
-            className={cl.containerPrice}
+            className={cl.productDelete}
             tag="p"
-            fontSize="m"
-            fontWeight="regular"
+            onClick={(event) => {
+              event.stopPropagation();
+              event.preventDefault();
+            }}
           >
-            ${(content.price - discount).toFixed(1)}
+            Delete
           </Text>
         </div>
       </div>
-      <div className={cl.buttonContainer}>
-        <IsInCart content={content} icon={true} />
-        <Text className={cl.productDelete} tag="p">
-          Delete
-        </Text>
-      </div>
-    </div>
+    </Link>
   );
 };
