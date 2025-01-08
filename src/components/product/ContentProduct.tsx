@@ -21,7 +21,7 @@ export const ContentProduct = () => {
       {error && <Navigate to="*" />}
       {content && (
         <div className={cl.product}>
-          <BlockImg content={content} />
+          <BlockImg thumbnail={content.thumbnail} images={content.images} />
           <BlockInfo content={content} />
         </div>
       )}

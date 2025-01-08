@@ -2,12 +2,10 @@ import { useState } from "react";
 import cl from "./BlockImg.module.scss";
 import { IProduct } from "models/Product";
 
-interface BlockImgProps {
-  content: IProduct;
-}
+type BlockImgProps = Pick<IProduct, "thumbnail" | "images">;
 
-export const BlockImg: React.FC<BlockImgProps> = ({ content }) => {
-  const initialImgMain: string = content?.thumbnail ?? "";
+export const BlockImg: React.FC<BlockImgProps> = ({ thumbnail, images }) => {
+  const initialImgMain: string = thumbnail ?? "";
   const [imgMain, setImgMain] = useState<string>(initialImgMain);
 
   const handleClick = (links: string) => {
@@ -25,11 +23,11 @@ export const BlockImg: React.FC<BlockImgProps> = ({ content }) => {
 
   return (
     <div className={cl.product__img}>
-      {content.images.length > 1 ? (
+      {images.length > 1 ? (
         <div>
           <img src={imgMain} className={cl.big} alt="" />
           <div className={cl.miniatures}>
-            {content.images.map((links) => (
+            {images.map((links) => (
               <img
                 id={links}
                 key={links}
@@ -44,7 +42,7 @@ export const BlockImg: React.FC<BlockImgProps> = ({ content }) => {
           </div>
         </div>
       ) : (
-        <img src={content.thumbnail} className={cl.big} alt="" />
+        <img src={thumbnail} className={cl.big} alt="" />
       )}
     </div>
   );
