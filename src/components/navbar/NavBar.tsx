@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import classes from "./NavBar.module.scss";
-import counter from "src/img/icon-cart.svg";
-import { useAppDispatch, useAppSelector } from "src/hook/redux";
-import { resetProducts } from "src/store/reducers/productSlice";
+import counter from "img/icon-cart.svg";
+import { resetProducts } from "store/reducers/productSlice";
+import { useAppDispatch, useAppSelector } from "hook/redux";
 
 export const NavBar = () => {
   const dispatch = useAppDispatch();

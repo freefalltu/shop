@@ -1,10 +1,10 @@
 import cl from "./ContentProduct.module.scss";
 import { Navigate, useParams } from "react-router-dom";
-import { useGetSingleProductQuery } from "src/api/query/contentProductApi";
+import { useGetSingleProductQuery } from "api/query/contentProductApi";
 import { BlockImg } from "./blockImg";
 import { BlockInfo } from "./blockInfo/BlockInfo";
-import useTitle from "src/hook/useTitle";
-import { Title } from "../UI/title";
+import useTitle from "hook/useTitle";
+import { Title } from "UI/title";
 
 export const ContentProduct = () => {
   const { id } = useParams<string>();

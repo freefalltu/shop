@@ -1,8 +1,9 @@
-import { Title } from "../UI/title";
+import { Title } from "UI/title";
 import cl from "./Cart.module.scss";
 import { CartPrice } from "./cartPrice";
-import { useAppSelector } from "src/hook/redux";
+import { useAppSelector } from "hook/redux";
 import { CartItem } from "./cartItem";
+import { IProduct } from "models/Product";
 
 export const Cart = () => {
   const { carts } = useAppSelector((state) => state.userSlice);
@@ -15,7 +16,7 @@ export const Cart = () => {
       {carts.totalQuantity > 0 ? (
         <div className={cl.cartWrapper}>
           <div className={cl.products}>
-            {carts.products.map((product) => (
+            {carts.products.map((product: IProduct) => (
               <CartItem key={product.id} content={product} />
             ))}
           </div>

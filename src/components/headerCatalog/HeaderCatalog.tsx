@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import cl from "./HeaderCatalog.module.scss";
-import { Button } from "../UI/button";
+import { Button } from "UI/button";
 
 export const HeaderCatalog = () => {
   return (

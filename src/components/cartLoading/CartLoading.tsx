@@ -1,4 +1,4 @@
-import { useCartLoading } from "src/hook/useCartLoading";
+import { useCartLoading } from "hook/useCartLoading";
 
 export const CartLoading = () => {
   useCartLoading(11);

@@ -1,8 +1,8 @@
-import { Title } from "src/components/UI/title";
-import { Text } from "src/components/UI/text";
+import { Title } from "UI/title";
+import { Text } from "UI/text";
 import cl from "./CartItem.module.scss";
 import { Link } from "react-router-dom";
-import { IProduct } from "src/models/Product";
+import { IProduct } from "models/Product";
 import { IsInCart } from "../isInCart";
 
 interface CartItemProps {

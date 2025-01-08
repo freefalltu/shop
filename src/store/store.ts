@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { baseApi } from "api/query/baseApi";
 import productSlice from "./reducers/productSlice";
 import userSlice from "./reducers/userSlice";
-import { baseApi } from "src/api/query/baseApi";
 
 const rootReducer = combineReducers({
   productSlice,

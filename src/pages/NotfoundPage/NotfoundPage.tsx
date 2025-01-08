@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { Button } from "src/components/UI/button";
-import { Title } from "src/components/UI/title";
-import useTitle from "src/hook/useTitle";
+import { Button } from "UI/button";
+import { Title } from "UI/title";
+import useTitle from "hook/useTitle";
 import cl from "./NotfoundPage.module.scss";
 
 export const NotfoundPage = () => {

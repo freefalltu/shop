@@ -1,8 +1,8 @@
-import { IProduct } from "src/models/Product";
+import { IProduct } from "models/Product";
 import cl from "./BlockInfo.module.scss";
-import { Title } from "src/components/UI/title";
-import { Rating } from "src/components/UI/rating";
-import { IsInCart } from "src/components/cart/isInCart";
+import { Title } from "UI/title";
+import { Rating } from "UI/rating";
+import { IsInCart } from "components/cart/isInCart";
 
 interface BlockInfoProps {
   content: IProduct;

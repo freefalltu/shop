@@ -1,4 +1,4 @@
-import { ICartsInfo } from "src/models/CartsInfo";
+import { ICartsInfo } from "models/CartsInfo";
 import axiosBase from "./axiosBase";
 
 export type CartsByUserTypeResponse = {

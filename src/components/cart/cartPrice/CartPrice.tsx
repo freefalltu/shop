@@ -1,6 +1,6 @@
-import { Text } from "src/components/UI/text";
+import { Text } from "UI/text";
 import cl from "./CartPrice.module.scss";
-import { ICartsInfo } from "src/models/CartsInfo";
+import { ICartsInfo } from "models/CartsInfo";
 
 interface CartPriceProps {
   cart: ICartsInfo;

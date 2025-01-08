@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ICartsInfo } from "src/models/CartsInfo";
+import { ICartsInfo } from "models/CartsInfo";
 import { fetchCartsByUser } from "./actionCreators";
-import { CartsByUserTypeResponse } from "src/api/user-api";
+import { CartsByUserTypeResponse } from "api/user-api";
 
 interface InitialState {
   carts: ICartsInfo;

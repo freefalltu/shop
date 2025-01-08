@@ -1,4 +1,4 @@
-import { IProduct } from "src/models/Product";
+import { IProduct } from "models/Product";
 import { baseApi } from "./baseApi";
 
 export const contentProductApi = baseApi.injectEndpoints({

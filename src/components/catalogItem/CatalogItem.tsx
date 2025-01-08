@@ -1,8 +1,8 @@
 import cl from "./CatalogItem.module.scss";
-import { IProduct } from "src/models/Product";
-import { Title } from "../UI/title";
-import { Text } from "../UI/text";
-import { IsInCart } from "../cart/isInCart";
+import { IProduct } from "models/Product";
+import { Title } from "UI/title";
+import { Text } from "UI/text";
+import { IsInCart } from "components/cart/isInCart";
 
 interface CatalogItemProps {
   content: IProduct;

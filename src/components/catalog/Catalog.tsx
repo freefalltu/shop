@@ -1,13 +1,13 @@
 import cl from "./Catalog.module.scss";
-import { CatalogItem } from "src/components/catalogItem";
-import { Title } from "src/components/UI/title";
-import { IProduct } from "src/models/Product";
+import { CatalogItem } from "components/catalogItem";
+import { Title } from "UI/title";
+import { IProduct } from "models/Product";
 import { Link } from "react-router-dom";
-import { Text } from "src/components/UI/text";
-import { Button } from "src/components/UI/button";
-import { useGetCatalogQuery } from "src/api/query/catalogApi";
+import { Text } from "UI/text";
+import { Button } from "UI/button";
+import { useGetCatalogQuery } from "api/query/catalogApi";
 import { useState } from "react";
-import { Input } from "src/components/UI/input";
+import { Input } from "UI/input";
 import { useDebounceCallback } from "usehooks-ts";
 
 export const Catalog = () => {

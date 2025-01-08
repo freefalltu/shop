@@ -1,4 +1,4 @@
-import { FaqInfo } from "../faqInfo";
+import { FaqInfo } from "components/faqInfo";
 import cl from "./Faq.module.scss";
 
 export const Faq = () => {

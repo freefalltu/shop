@@ -1,9 +1,9 @@
-import { Button } from "src/components/UI/button";
-import { Counter } from "src/components/UI/counter";
-import { useAppSelector } from "src/hook/redux";
-import { IProduct } from "src/models/Product";
-import img from "src/img/icon-cart.svg";
-import useCounterState from "src/hook/useCounterState";
+import { Button } from "UI/button";
+import { Counter } from "UI/counter";
+import { useAppSelector } from "hook/redux";
+import { IProduct } from "models/Product";
+import img from "img/icon-cart.svg";
+import useCounterState from "hook/useCounterState";
 
 interface IsInCart {
   content: IProduct;
@@ -13,7 +13,9 @@ interface IsInCart {
 export const IsInCart: React.FC<IsInCart> = ({ content, icon }) => {
   const { carts } = useAppSelector((state) => state.userSlice);
 
-  const itemInCart = carts?.products?.find((item) => item.id === content.id);
+  const itemInCart = carts?.products?.find(
+    (item: { id: number }) => item.id === content.id,
+  );
 
   const initialQuantity =
     itemInCart?.quantity === undefined ? 0 : itemInCart.quantity;
