@@ -9,6 +9,7 @@ interface ButtonProps {
   view?: "text" | "icon";
   size?: "big" | "small";
   type: "myBtnIcon" | "myBtnText";
+  loading?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -18,13 +19,20 @@ export const Button: React.FC<ButtonProps> = ({
   view = "text",
   size = "small",
   type = "myBtnText",
+  loading,
 }) => {
   return (
-    <button
-      className={cn(className, cl[view], cl[size], cl[type])}
-      onClick={onClick}
-    >
-      {children}
-    </button>
+    <div>
+      {loading === true ? (
+        <span className={cl.loader} />
+      ) : (
+        <button
+          className={cn(className, cl[view], cl[size], cl[type])}
+          onClick={onClick}
+        >
+          {children}
+        </button>
+      )}
+    </div>
   );
 };

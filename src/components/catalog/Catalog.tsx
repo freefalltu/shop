@@ -14,17 +14,18 @@ export const Catalog = () => {
   const [search, setSearch] = useState<string>("");
   const [limit, setLimit] = useState<number>(12);
 
+  const {
+    data: content,
+    error,
+    isLoading,
+    isFetching,
+  } = useGetCatalogQuery({ query: search, limit: limit, skip: 0 });
+
   const debounced = useDebounceCallback(setSearch, 200);
 
   const showMore = () => {
     setLimit(limit + 12);
   };
-
-  const {
-    data: content,
-    error,
-    isLoading,
-  } = useGetCatalogQuery({ query: search, limit: limit, skip: 0 });
 
   return (
     <div className={cl.catalog}>
@@ -64,7 +65,15 @@ export const Catalog = () => {
         <div />
       ) : (
         <div className={cl.catalogBtn}>
-          <Button type="myBtnText" view="text" size="small" onClick={showMore}>
+          <Button
+            type="myBtnText"
+            view="text"
+            size="small"
+            loading={isFetching}
+            onClick={() => {
+              showMore();
+            }}
+          >
             Show more
           </Button>
         </div>
