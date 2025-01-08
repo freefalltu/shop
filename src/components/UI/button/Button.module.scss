@@ -31,15 +31,20 @@
     padding: 0;
     border-radius: 4px;
     cursor: pointer;
-    z-index: 2;
     position: relative;
+
     &:hover {
         background-color: #8C2828;
     }
+}
 
-    &:disabled {
-        background-color: #F8AFAF;
-    }
+.myBtnIconDisabled {
+    border: none;
+    background-color: #F14F4F;
+    padding: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
 }
 
 .myBtnText {
@@ -59,10 +64,21 @@
     &:hover {
         background-color: #8C2828;
     }
+}
 
-    &:disabled {
-        background-color: #F8AFAF;
-    }
+.myBtnTextDisabled {
+    border: none;
+    background-color: #F8AFAF;
+    min-width: 148px;
+    min-height: 62px;
+    padding: 20px 50px;
+    border-radius: 4px;
+    gap: 10px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+    cursor: pointer;
+    color: white;
 }
 
 .loader {

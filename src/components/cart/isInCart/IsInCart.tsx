@@ -1,7 +1,6 @@
 import { Button } from "src/components/UI/button";
 import { Counter } from "src/components/UI/counter";
 import { useAppSelector } from "src/hook/redux";
-import cl from "./IsInCart.module.scss";
 import { IProduct } from "src/models/Product";
 import img from "src/img/icon-cart.svg";
 import useCounterState from "src/hook/useCounterState";
@@ -26,6 +25,7 @@ export const IsInCart: React.FC<IsInCart> = ({ content, icon }) => {
     <div>
       {itemInCart ? (
         <Counter
+          itemInCart={itemInCart.quantity}
           children={quantityValue}
           size="medium"
           onClick={(event) => {
@@ -47,7 +47,7 @@ export const IsInCart: React.FC<IsInCart> = ({ content, icon }) => {
                 event.preventDefault();
               }}
             >
-              <img src={img} className={cl.button__img} alt="" />
+              <img src={img} alt="" />
             </Button>
           ) : (
             <Button type="myBtnText" view="text" size="big">

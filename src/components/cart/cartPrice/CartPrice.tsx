@@ -18,14 +18,25 @@ export const CartPrice: React.FC<CartPriceProps> = ({ cart }) => {
         >
           Total count
         </Text>
-        <Text
-          className={cl.countCost}
-          tag="p"
-          fontSize="l"
-          fontWeight="regular"
-        >
-          {cart.totalProducts} items
-        </Text>
+        {cart.totalProducts < 2 ? (
+          <Text
+            className={cl.countCost}
+            tag="p"
+            fontSize="l"
+            fontWeight="regular"
+          >
+            {cart.totalProducts} item
+          </Text>
+        ) : (
+          <Text
+            className={cl.countCost}
+            tag="p"
+            fontSize="l"
+            fontWeight="regular"
+          >
+            {cart.totalProducts} items
+          </Text>
+        )}
       </div>
       <div className={cl.discount}>
         <Text
