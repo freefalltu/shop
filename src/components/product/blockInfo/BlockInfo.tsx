@@ -1,9 +1,8 @@
 import { IProduct } from "models/Product";
 import cl from "./BlockInfo.module.scss";
 import { Title } from "UI/title";
-import { Rating } from "UI/rating";
+import { StarRating } from "UI/rating";
 import { IsInCart } from "components/cart/isInCart";
-
 interface BlockInfoProps {
   content: IProduct;
 }
@@ -20,14 +19,7 @@ export const BlockInfo: React.FC<BlockInfoProps> = ({ content }) => {
         {content?.title}
       </Title>
       <div className={cl.rating}>
-        <Rating
-          size={25}
-          activeColor="#F14F4F"
-          value={content.rating}
-          color="#D5D5D5"
-          half={false}
-          edit={true}
-        />
+        <StarRating rating={content.rating} />
         <span>electronics, selfie accessories</span>
       </div>
       <hr className={cl.line} />

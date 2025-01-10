@@ -1,0 +1,15 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.star {
+    margin-right: 0.5rem;
+    cursor: pointer;
+    transition: color 200ms;
+}
+
+.input {
+    display: none;
+}
