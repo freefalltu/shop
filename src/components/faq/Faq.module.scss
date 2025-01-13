@@ -17,3 +17,23 @@
     height: 1px;
     margin-bottom: 2rem;
 }
+
+/* ----------MEDIA------------ */
+
+@media (min-width: 992px) and (max-width: 1288px) {
+    .line {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .line {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .line {
+        margin-bottom: 1.5rem;
+    }
+}

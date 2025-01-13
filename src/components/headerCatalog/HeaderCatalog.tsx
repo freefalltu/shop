@@ -17,11 +17,11 @@ export const HeaderCatalog = () => {
         and many other products at low prices
       </pre>
       <div className={cl.btn}>
-        <Link to="/#Catalog">
-          <Button type="myBtnText" view="text" size="big">
+        <Button type="myBtnText" view="text" size="big">
+          <Link to="/#Catalog" className={cl.btnLink}>
             Go to shopping
-          </Button>
-        </Link>
+          </Link>
+        </Button>
       </div>
       <p className={cl.textBack}>Goods4you</p>
     </div>

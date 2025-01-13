@@ -17,7 +17,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ content }) => {
   return (
     <div className={cl.item}>
       <div className={cl.image}>
-        <img src={content.thumbnail} alt="" />
+        <img className={cl.picture} src={content.thumbnail} alt="" />
         <div className={cl.background}>
           <span>Show details</span>
         </div>

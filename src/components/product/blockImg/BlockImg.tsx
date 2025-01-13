@@ -22,9 +22,9 @@ export const BlockImg: React.FC<BlockImgProps> = ({ thumbnail, images }) => {
   };
 
   return (
-    <div className={cl.product__img}>
+    <div>
       {images.length > 1 ? (
-        <div>
+        <div className={cl.product__img}>
           <img src={imgMain} className={cl.big} alt="" />
           <div className={cl.miniatures}>
             {images.map((links) => (

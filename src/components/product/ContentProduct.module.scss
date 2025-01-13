@@ -10,3 +10,12 @@
     margin-top: 3rem;
     color: #444B58;
 }
+
+/* ----------MEDIA------------ */
+
+@media (max-width: 1093px) {
+    .product {
+        flex-direction: column;
+        justify-content: center;
+    }
+}

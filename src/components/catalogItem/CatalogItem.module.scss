@@ -72,24 +72,30 @@
     font-weight: 100;
 }
 
-.myBtn {
-    border: none;
-    background-color: #F14F4F;
-    padding: 0;
-    border-radius: 4px;
-    cursor: pointer;
-    z-index: 2;
-    &:hover {
-        background-color: #8C2828;
-    }
-
-    &:disabled {
-        background-color: #F8AFAF;
-    }
-}
-
 .myBtn:hover {
     .content__title {
         text-decoration: none;   
+    }
+}
+
+/* ----------MEDIA------------ */
+
+@media (min-width: 841px) and (max-width: 1065px) {
+    .item{
+        max-width: 18rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .item{
+        max-width: 13rem;
+    }
+
+    .picture {
+        height: 200px;
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
     }
 }

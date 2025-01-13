@@ -124,4 +124,59 @@
     font-size: 16px;
     line-height: 24px;
     font-weight: 600;
+    margin-right: 10px;
+}
+
+/* ----------MEDIA------------ */
+
+
+@media (min-width: 1094px) and (max-width: 1351px) {
+    .counter {
+        flex-direction: column;
+    }
+    .counts {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 1093px) {
+    .productInfo{
+        width: 80vw;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 705px) {
+    .counter {
+        flex-direction: column;
+    }
+    .counts {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 578px) {
+    .newCount {
+        font-size: 20px;
+        line-height: 20px;
+        font-weight: 600;
+    }
+    
+    .oldCount {
+        font-size: 10px;
+        line-height: 16px;
+        font-weight: 500;
+        text-decoration: line-through;
+    }
+    .discount {
+        font-size: 10px;
+        line-height: 12px;
+        font-weight: 400;
+    }
+    
+    .discountPercent {
+        font-size: 10px;
+        line-height: 12px;
+        font-weight: 600;
+    }
 }

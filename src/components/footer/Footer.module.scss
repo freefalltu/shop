@@ -43,3 +43,11 @@
     text-decoration: underline;
     opacity: 80%;
 }
+
+/* ----------MEDIA------------ */
+
+@media (max-width:410px) {
+    .btn:not(:last-child) {
+        margin-right: 10px;
+    }
+}

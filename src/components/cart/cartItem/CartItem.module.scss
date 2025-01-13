@@ -62,3 +62,31 @@
         text-decoration: underline;
     }
 }
+
+/* ----------MEDIA------------ */
+
+@media (max-width: 800px) {
+    .product {
+        flex-direction: column;
+        margin-bottom: 2rem;
+    }
+
+    .itemContainer {
+        justify-content: start;
+        margin-bottom: 1rem;
+    }
+
+}
+
+@media (max-width: 404px) {
+    .buttonContainer {
+        flex-direction: column;
+    }
+
+    .productDelete {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 1.5rem;
+        height: 20px;
+    }
+}

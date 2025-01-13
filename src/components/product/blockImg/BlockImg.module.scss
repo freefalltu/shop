@@ -16,7 +16,7 @@
 
 .small {
     cursor: pointer;
-    padding:2px;
+    padding: 2px;
     width: 70px;
     height: 70px;
     margin: auto;
@@ -28,4 +28,16 @@
 .active {
     border-radius: 4px;
     outline: 3px solid #C4C4C4;
+}
+
+/* ----------MEDIA------------ */
+
+@media (max-width: 578px) {
+    .big {
+        height: 17rem;
+        width: 17rem;
+    }
+    .miniatures {
+        width: 17rem;
+    }
 }

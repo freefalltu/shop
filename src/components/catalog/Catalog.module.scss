@@ -50,10 +50,44 @@
 
 .content {
     display: grid;
-    grid-template-columns: repeat(3,370px);
+    grid-template-columns: repeat(3, 370px);
     gap: 20px;
+    width: 80vw;
 }
 
 a {
     text-decoration: none;
+}
+
+/* ----------MEDIA------------ */
+
+@media (min-width: 992px) and (max-width: 1439px) {
+    .content{
+        grid-template-columns: repeat(2, 23rem);
+        justify-content: center;
+        gap: 100px;
+    }
+}
+
+@media (min-width: 841px) and (max-width: 1065px) {
+    .content{
+        grid-template-columns: repeat(2, 18rem);
+        justify-content: center;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 840px){
+    .content{
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+}
+
+@media (max-width: 450px){
+    .content{
+        grid-template-columns: 1fr;
+        max-width: 20rem;
+        place-content: center;
+    }
 }

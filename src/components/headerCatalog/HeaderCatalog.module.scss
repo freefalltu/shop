@@ -33,6 +33,11 @@
     z-index: 2;
 }
 
+.btnLink {
+    text-decoration: none;
+    color: #fff;
+}
+
 .textBack {
     margin: 0;
     width: 60vw;
@@ -45,4 +50,38 @@
     text-align: center;
     opacity: 12%;
     z-index: 1;
+}
+
+/* ----------MEDIA------------ */
+
+@media (min-width: 992px) and (max-width: 1249px) {
+    .textBack {
+        font-size: 150px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .textBack {
+        font-size: 100px;
+    }
+}
+
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .textBack {
+        font-size: 50px;
+        top: -4rem;
+    }
+
+    .title {
+        margin-top: 5%;
+        font-size: 17px;
+        line-height: 30px;
+    }
+
+    .text {
+        margin-top: 1%;
+        font-size: 10px;
+        line-height: 18px;
+    }
 }
