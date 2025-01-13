@@ -24,7 +24,12 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <div>
       {loading === true ? (
-        <span className={cl.loader} />
+        <button
+          className={cn(className, cl[view], cl[size], cl[type])}
+          onClick={onClick}
+        >
+          <div className={cl.loader} />
+        </button>
       ) : (
         <button
           className={cn(className, cl[view], cl[size], cl[type])}
