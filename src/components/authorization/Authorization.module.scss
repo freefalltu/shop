@@ -30,3 +30,41 @@
     padding: 1.25rem 4rem;
     margin: 3.75rem auto;
 }
+
+/* ----------MEDIA------------ */
+
+@media (min-width: 320px) and (max-width: 790px) {
+    .title {
+        margin-top: 4rem;
+    }
+
+    .box {
+        width: 25rem;
+    }
+
+    .input {
+        width: 20rem;
+        margin: 2rem auto 0 auto;
+        height: 3rem;
+    }
+
+    .button {
+        padding: 1.25rem 3rem;
+        margin: 2.25rem auto;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .title {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    .box {
+        width: 16rem;
+    }
+
+    .input {
+        width: 12rem;
+    }
+}
