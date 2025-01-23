@@ -1,11 +1,17 @@
 .input {
     width: 80vw;
     padding: 10px;
-    height: 4vw;
+    padding-left: 1.25rem;
+    height: 4.25vw;
     font-size: 16px;
     line-height: 22px;
     font-weight: 400;
     border-radius: 4px;
     border: none;
-    background-color: rgba($color: #b3b3b3, $alpha: 0.2);
+    background-color: #F6F6F6;
+    color: #444B58;
+    &::placeholder {
+        color: #B2B5BB;
+        opacity: 90%;
+    }
 }
