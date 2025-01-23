@@ -5,26 +5,19 @@
     color: #444B58;
 }
 
-.catalog__title {
+.catalogTitle {
     line-height: 56px;
     margin-bottom: 40px;
 }
 
-.catalog__input {
+.catalogInput {
     margin-bottom: 50px;
 }
 
-.catalog__products {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: start;
-    margin-bottom: 40px;
-    gap: 20px;
-}
-
-.catalog__btn {
+.catalogBtn {
     display: flex;
     justify-content: center;
+    margin-top: 50px;
 }
 
 .myBtn {
@@ -47,5 +40,54 @@
 
     &:disabled {
         background-color: #F8AFAF;
+    }
+}
+
+.noElements {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(3, 370px);
+    gap: 20px;
+    width: 80vw;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ----------MEDIA------------ */
+
+@media (min-width: 992px) and (max-width: 1400px) {
+    .content{
+        grid-template-columns: repeat(2, 23rem);
+        justify-content: center;
+        gap: 100px;
+    }
+}
+
+@media (min-width: 841px) and (max-width: 1065px) {
+    .content{
+        grid-template-columns: repeat(2, 18rem);
+        justify-content: center;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 840px){
+    .content{
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+}
+
+@media (max-width: 450px){
+    .content{
+        grid-template-columns: 1fr;
+        max-width: 20rem;
+        place-content: center;
     }
 }

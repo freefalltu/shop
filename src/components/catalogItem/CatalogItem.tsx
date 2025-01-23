@@ -1,30 +1,42 @@
 import cl from "./CatalogItem.module.scss";
-import img from "../../img/CatalogItem.svg";
-// import Button from '../UI/button/Button'
-// import imgCart from '../../img/icon-cart.svg';
-import { Link } from "react-router-dom";
-import { Counter } from "../UI/counter";
+import { IProduct } from "models/Product";
+import { Title } from "UI/title";
+import { Text } from "UI/text";
+import { IsInCart } from "components/cart/isInCart";
 
-export const CatalogItem = () => {
+interface CatalogItemProps {
+  content: IProduct;
+}
+
+export const CatalogItem: React.FC<CatalogItemProps> = ({ content }) => {
+  const discount = +(
+    (content.price * content.discountPercentage) /
+    100
+  ).toFixed(1);
+
   return (
     <div className={cl.item}>
-      <Link className={cl.item__img} to="/product">
-        <img src={img} alt="" />
-        <div className={cl.img__bg}>
+      <div className={cl.image}>
+        <img className={cl.picture} src={content.thumbnail} alt="" />
+        <div className={cl.background}>
           <span>Show details</span>
         </div>
-      </Link>
-      <div className={cl.item__content}>
-        <div className={cl.contentInfo}>
-          <Link className={cl.content__title} to="/product">
-            Essence Mascara Lash Princess
-          </Link>
-          <p className={cl.content__price}>$110</p>
+      </div>
+      <div className={cl.content}>
+        <div className={cl.info}>
+          <Title className={cl.title} tag="h2" fontSize="l" fontWeight="Bold">
+            {content.title}
+          </Title>
+          <Text
+            className={cl.price}
+            tag="span"
+            fontSize="m"
+            fontWeight="regular"
+          >
+            ${(content.price - discount).toFixed(1)}
+          </Text>
         </div>
-        <Counter children={0} size="medium" />
-        {/* <Button className={cl.myBtn} view='icon' size='small'>
-                    <img src={imgCart} className={cl.button__img} alt="" />
-                </Button> */}
+        <IsInCart content={content} icon={true} />
       </div>
     </div>
   );

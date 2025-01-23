@@ -1,30 +1,46 @@
-import { Text } from "src/components/UI/text";
+import { Text } from "UI/text";
 import cl from "./CartPrice.module.scss";
+import { ICartsInfo } from "models/CartsInfo";
 
-export const CartPrice = () => {
+interface CartPriceProps {
+  cart: ICartsInfo;
+}
+
+export const CartPrice: React.FC<CartPriceProps> = ({ cart }) => {
   return (
     <div className={cl.price}>
-      <div className={cl.total__count}>
+      <div className={cl.totalCount}>
         <Text
-          className={cl.count__text}
+          className={cl.countText}
           tag="p"
           fontSize="l"
           fontWeight="regular"
         >
           Total count
         </Text>
-        <Text
-          className={cl.count__cost}
-          tag="p"
-          fontSize="l"
-          fontWeight="regular"
-        >
-          3 items
-        </Text>
+        {cart.totalProducts < 2 ? (
+          <Text
+            className={cl.countCost}
+            tag="p"
+            fontSize="l"
+            fontWeight="regular"
+          >
+            {cart.totalProducts} item
+          </Text>
+        ) : (
+          <Text
+            className={cl.countCost}
+            tag="p"
+            fontSize="l"
+            fontWeight="regular"
+          >
+            {cart.totalProducts} items
+          </Text>
+        )}
       </div>
       <div className={cl.discount}>
         <Text
-          className={cl.discount__text}
+          className={cl.discountText}
           tag="p"
           fontSize="l"
           fontWeight="semiBold"
@@ -32,18 +48,18 @@ export const CartPrice = () => {
           Price without discount
         </Text>
         <Text
-          className={cl.discount__cost}
+          className={cl.discountCost}
           tag="p"
           fontSize="l"
           fontWeight="semiBold"
         >
-          $700
+          ${cart.total.toFixed(1)}
         </Text>
       </div>
-      <hr className={cl.price__line} />
-      <div className={cl.total__price}>
+      <hr className={cl.priceLine} />
+      <div className={cl.totalPrice}>
         <Text
-          className={cl.price__text}
+          className={cl.priceText}
           tag="p"
           fontSize="xl"
           fontWeight="semiBold"
@@ -51,12 +67,12 @@ export const CartPrice = () => {
           Total price
         </Text>
         <Text
-          className={cl.price__cost}
+          className={cl.priceCost}
           tag="p"
           fontSize="xl"
           fontWeight="semiBold"
         >
-          $590
+          ${cart.discountedTotal.toFixed(1)}
         </Text>
       </div>
     </div>

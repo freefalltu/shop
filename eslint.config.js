@@ -20,7 +20,7 @@ export default tseslint.config(
     },
   },
   {
-    ignores: ['dist', 'node_modules', 'coverage', 'eslint.config.js'],
+    ignores: ['dist', 'node_modules', 'coverage', 'eslint.config.js', '.storybook/preview.ts', '.storybook/main.ts'],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,

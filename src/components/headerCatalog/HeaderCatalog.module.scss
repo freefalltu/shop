@@ -1,17 +1,17 @@
-.header__catalog {
+.catalog {
     margin: 0 auto;
     width: 80vw;
     position: relative;
 }
 
-.catalog__line {
+.line {
     color: white;
     background-color: #fff;
     height: 1px;
     width: 80vw;
 }
 
-.catalog__title {
+.title {
     margin-top: 9%;
     font-size: 36px;
     line-height: 50px;
@@ -19,7 +19,7 @@
     z-index: 2;
 }
 
-.catalog__text {
+.text {
     margin-top: 3%;
     font-size: 16px;
     line-height: 24px;
@@ -27,13 +27,18 @@
     z-index: 2;
 }
 
-.catalog__btn {
+.btn {
     position: relative;
     margin-top: 3%;
     z-index: 2;
 }
 
-.catalog__textBack {
+.btnLink {
+    text-decoration: none;
+    color: #fff;
+}
+
+.textBack {
     margin: 0;
     width: 60vw;
     position: absolute;
@@ -47,25 +52,36 @@
     z-index: 1;
 }
 
-.myBtn {
-    border: none;
-    background-color: #F14F4F;
-    min-width: 148px;
-    min-height: 62px;
-    padding: 20px 50px;
-    border-radius: 4px;
-    gap: 10px;
-    font-size: 16px;
-    line-height: 22px;
-    font-weight: 400;
-    cursor: pointer;
-    color: white;
+/* ----------MEDIA------------ */
 
-    &:hover {
-        background-color: #8C2828;
+@media (min-width: 992px) and (max-width: 1249px) {
+    .textBack {
+        font-size: 150px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .textBack {
+        font-size: 100px;
+    }
+}
+
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .textBack {
+        font-size: 50px;
+        top: -4rem;
     }
 
-    &:disabled {
-        background-color: #F8AFAF;
+    .title {
+        margin-top: 5%;
+        font-size: 17px;
+        line-height: 30px;
+    }
+
+    .text {
+        margin-top: 1%;
+        font-size: 10px;
+        line-height: 18px;
     }
 }

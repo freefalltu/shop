@@ -1,0 +1,43 @@
+.miniatures {
+    overflow: auto;
+    padding: 10px;
+    height: 7rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.big {
+    width: 30rem;
+    height: 30rem;
+    object-fit: scale-down;
+}
+
+.small {
+    cursor: pointer;
+    padding: 2px;
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    &:not(:last-child) {
+        margin-right: 20px;
+    }
+}
+
+.active {
+    border-radius: 4px;
+    outline: 3px solid #C4C4C4;
+}
+
+/* ----------MEDIA------------ */
+
+@media (max-width: 578px) {
+    .big {
+        height: 17rem;
+        width: 17rem;
+    }
+    .miniatures {
+        width: 17rem;
+    }
+}
