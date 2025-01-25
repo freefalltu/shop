@@ -1,0 +1,70 @@
+.container {
+    margin: 2.75rem auto;
+    width: 80vw;
+}
+
+.title {
+    color: #444B58;
+    text-align: center;
+    margin-top: 9rem;
+    margin-bottom: 3rem;
+}
+
+.box {
+    width: 37.5rem;
+    margin: 0 auto;
+    border: 1px solid #C4C4C4;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    width: 30rem;
+    margin: 4rem auto 0 auto;
+}
+
+.button {
+    padding: 1.25rem 4rem;
+    margin: 3.75rem auto;
+}
+
+/* ----------MEDIA------------ */
+
+@media (min-width: 320px) and (max-width: 790px) {
+    .title {
+        margin-top: 4rem;
+    }
+
+    .box {
+        width: 25rem;
+    }
+
+    .input {
+        width: 20rem;
+        margin: 2rem auto 0 auto;
+        height: 3rem;
+    }
+
+    .button {
+        padding: 1.25rem 3rem;
+        margin: 2.25rem auto;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .title {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    .box {
+        width: 16rem;
+    }
+
+    .input {
+        width: 12rem;
+    }
+}
