@@ -1,15 +1,45 @@
 import cl from "./LoginPage.module.scss";
 import { LoginHeader } from "components/loginHeader";
 import useTitle from "hook/useTitle";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "UI/button";
 import { Input } from "UI/input";
 import { Title } from "UI/title";
+import { useLoginUserMutation } from "api/query/authApi";
+import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
   useTitle("Sign in | Goods4you");
-  const [email, setEmail] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [loginUser, { isLoading, isSuccess }] = useLoginUserMutation();
+
+  const navigate = useNavigate();
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (username && password) {
+      try {
+        const result = await loginUser({
+          username,
+          password,
+          expiresInMins: 10,
+        }).unwrap();
+        localStorage.setItem("token", result.accessToken);
+      } catch (err) {
+        alert(`Error ${err}`);
+      }
+    } else {
+      console.log("Заполните все поля");
+    }
+  };
+
+  useEffect(() => {
+    if (isSuccess) {
+      navigate("/");
+    }
+  }, [isSuccess]);
+
   return (
     <div>
       <LoginHeader />
@@ -21,9 +51,9 @@ export const LoginPage = () => {
           <Input
             className={cl.input}
             placeholder="Login"
-            value={email}
+            value={username}
             type="text"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <Input
             className={cl.input}
@@ -37,8 +67,9 @@ export const LoginPage = () => {
             view="text"
             size="small"
             className={cl.button}
+            onClick={handleLogin}
           >
-            Sign in
+            {isLoading ? "Logging in..." : "Sign in"}
           </Button>
         </div>
       </div>
