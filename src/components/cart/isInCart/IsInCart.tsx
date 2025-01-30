@@ -18,7 +18,7 @@ export const IsInCart: React.FC<IsInCart> = ({ content, icon }) => {
   );
 
   const initialQuantity =
-    itemInCart?.quantity === undefined ? 0 : itemInCart.quantity;
+    itemInCart?.quantity === undefined ? 0 : itemInCart?.quantity;
 
   const { quantityValue, onMinusClick, onPlusClick } =
     useCounterState(initialQuantity);

@@ -5,7 +5,6 @@ import useTitle from "hook/useTitle";
 
 export const CatalogPage = () => {
   useTitle("Catalog | Goods4you");
-
   return (
     <div className="container">
       <div className="container__header">

@@ -6,9 +6,9 @@ export const useCartLoading = (id: number) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const source = dispatch(fetchCartsByUser({ id }));
+    const source = dispatch(fetchCartsByUser({ id: id }));
     return () => {
       source.abort();
     };
-  }, []);
+  }, [dispatch]);
 };

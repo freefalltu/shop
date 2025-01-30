@@ -1,18 +1,20 @@
 import cl from "./LoginPage.module.scss";
 import { LoginHeader } from "components/loginHeader";
 import useTitle from "hook/useTitle";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "UI/button";
 import { Input } from "UI/input";
 import { Title } from "UI/title";
 import { useLoginUserMutation } from "api/query/authApi";
 import { useNavigate } from "react-router-dom";
+import { Text } from "UI/text";
 
 export const LoginPage = () => {
   useTitle("Sign in | Goods4you");
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [loginUser, { isLoading, isSuccess }] = useLoginUserMutation();
+  const [emptyInputField, setEmptyInputField] = useState<boolean>(false);
+  const [loginUser, { isLoading }] = useLoginUserMutation();
 
   const navigate = useNavigate();
 
@@ -23,22 +25,17 @@ export const LoginPage = () => {
         const result = await loginUser({
           username,
           password,
-          expiresInMins: 10,
+          expiresInMins: 1,
         }).unwrap();
         localStorage.setItem("token", result.accessToken);
+        navigate("/");
       } catch (err) {
         alert(`Error ${err}`);
       }
     } else {
-      console.log("Заполните все поля");
+      setEmptyInputField(true);
     }
   };
-
-  useEffect(() => {
-    if (isSuccess) {
-      navigate("/");
-    }
-  }, [isSuccess]);
 
   return (
     <div>
@@ -62,6 +59,13 @@ export const LoginPage = () => {
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
+          {emptyInputField ? (
+            <Text tag="span" className={cl.emptyInputField}>
+              Заполните пустые поля
+            </Text>
+          ) : (
+            <div />
+          )}
           <Button
             type="myBtnText"
             view="text"

@@ -13,7 +13,7 @@ export const Cart = () => {
       <Title className={cl.title} tag="h1" fontSize="xxl" fontWeight="Bold">
         My cart
       </Title>
-      {carts.totalQuantity > 0 ? (
+      {carts?.totalQuantity > 0 ? (
         <div className={cl.cartWrapper}>
           <div className={cl.products}>
             {carts.products.map((product: IProduct) => (
