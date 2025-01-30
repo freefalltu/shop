@@ -6,7 +6,6 @@ export const CartLoading = ({ children }: { children: React.ReactNode }) => {
   const currentUserId: number = currentUser?.id ?? 0;
 
   useCartLoading(currentUserId);
-  console.log(`CurrentUserId = ${currentUserId}`);
 
   return <>{children}</>;
 };
