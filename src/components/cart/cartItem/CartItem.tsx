@@ -4,10 +4,10 @@ import cl from "./CartItem.module.scss";
 import { Link } from "react-router-dom";
 import { IProduct } from "models/Product";
 import { IsInCart } from "../isInCart";
-import { useAppDispatch, useAppSelector } from "hook/redux";
-import { fetchUpdateCart } from "store/reducers/actionCreators";
-import { useState } from "react";
+import { useAppSelector } from "hook/redux";
 import { CartItemDisable } from "../cartItemDisable";
+import useCounterState from "hook/useCounterState";
+import { useUpdateProduct } from "hook/useUpdateProduct";
 
 interface CartItemProps {
   content: IProduct;
@@ -18,28 +18,24 @@ export const CartItem: React.FC<CartItemProps> = ({ content }) => {
     (content.price * content.discountPercentage) /
     100
   ).toFixed(1);
-  const dispatch = useAppDispatch();
   const { carts } = useAppSelector((state) => state.userSlice);
+  const itemInCart = carts?.products?.find(
+    (item: { id: number }) => item.id === content.id,
+  );
 
-  const [disabled, setDisabled] = useState(true);
-  const itemInCartDisabled: boolean = disabled;
+  const initialQuantity = itemInCart?.quantity || 0;
 
-  const handleDelete = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setDisabled(false);
-    event.stopPropagation();
-    event.preventDefault();
-    dispatch(
-      fetchUpdateCart({
-        id: carts.id,
-        products: carts.products.filter((p) => p.id !== content.id),
-        merge: false,
-      }),
-    );
-  };
+  const { quantityValue, handleDelete } = useCounterState(
+    initialQuantity,
+    content.id,
+    content.stock,
+  );
+
+  useUpdateProduct(quantityValue, initialQuantity, content.id);
 
   return (
     <Link className={cl.title} to={`/product/${content.id}`}>
-      {itemInCartDisabled === false ? (
+      {quantityValue < 1 ? (
         <CartItemDisable content={content} />
       ) : (
         <div className={cl.product}>

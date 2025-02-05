@@ -47,10 +47,23 @@ const useCounterState = (
     );
   };
 
+  const handleDelete = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    event.preventDefault();
+    dispatch(
+      fetchUpdateCart({
+        id: carts.id,
+        products: carts.products.filter((p) => p.id !== productId),
+        merge: false,
+      }),
+    );
+  };
+
   return {
     onMinusClick,
     onPlusClick,
     addProduct,
+    handleDelete,
     quantityValue,
   };
 };
