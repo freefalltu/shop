@@ -1,11 +1,11 @@
 import { useGetCurrentUserQuery } from "api/query/authApi";
 import { useCartLoading } from "hook/useCartLoading";
 
-export const CartLoading = ({ children }: { children: React.ReactNode }) => {
+export const CartLoading = () => {
   const { data: currentUser } = useGetCurrentUserQuery();
   const currentUserId: number = currentUser?.id ?? 0;
 
   useCartLoading(currentUserId);
 
-  return <>{children}</>;
+  return null;
 };

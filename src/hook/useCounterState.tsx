@@ -1,19 +1,56 @@
 import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "./redux";
+import { fetchUpdateCart } from "store/reducers/actionCreators";
 
-const useCounterState = (initialQuantity: number) => {
+const useCounterState = (
+  initialQuantity: number,
+  productId: number,
+  stock: number,
+) => {
   const [quantityValue, setQuantityValue] = useState(initialQuantity);
-  const onMinusClick = () => {
+  const dispatch = useAppDispatch();
+  const { carts } = useAppSelector((state) => state.userSlice);
+
+  const onMinusClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    event.preventDefault();
     if (quantityValue > 0) {
-      setQuantityValue((value) => value - 1);
+      setQuantityValue((value) => (value -= 1));
+    } else if (quantityValue === 0) {
+      setQuantityValue(0);
+      dispatch(
+        fetchUpdateCart({
+          id: carts.id,
+          products: carts.products.filter((p) => p.id !== productId),
+          merge: false,
+        }),
+      );
     }
   };
-  const onPlusClick = () => {
-    setQuantityValue((value) => value + 1);
+
+  const onPlusClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    event.preventDefault();
+    if (quantityValue < stock) {
+      setQuantityValue((value) => (value += 1));
+    }
+  };
+
+  const addProduct = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    event.preventDefault();
+    dispatch(
+      fetchUpdateCart({
+        id: carts.id,
+        products: [...carts.products, { id: productId, quantity: 1 }],
+      }),
+    );
   };
 
   return {
     onMinusClick,
     onPlusClick,
+    addProduct,
     quantityValue,
   };
 };

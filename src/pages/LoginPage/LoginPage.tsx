@@ -25,7 +25,7 @@ export const LoginPage = () => {
         const result = await loginUser({
           username,
           password,
-          expiresInMins: 1,
+          expiresInMins: 30,
         }).unwrap();
         localStorage.setItem("token", result.accessToken);
         navigate("/");

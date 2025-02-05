@@ -4,6 +4,7 @@ import { useAppSelector } from "hook/redux";
 import { IProduct } from "models/Product";
 import img from "img/icon-cart.svg";
 import useCounterState from "hook/useCounterState";
+import { useUpdateProduct } from "hook/useUpdateProduct";
 
 interface IsInCart {
   content: IProduct;
@@ -17,11 +18,12 @@ export const IsInCart: React.FC<IsInCart> = ({ content, icon }) => {
     (item: { id: number }) => item.id === content.id,
   );
 
-  const initialQuantity =
-    itemInCart?.quantity === undefined ? 0 : itemInCart?.quantity;
+  const initialQuantity = itemInCart?.quantity || 0;
 
-  const { quantityValue, onMinusClick, onPlusClick } =
-    useCounterState(initialQuantity);
+  const { quantityValue, onMinusClick, onPlusClick, addProduct } =
+    useCounterState(initialQuantity, content.id, content.stock);
+
+  useUpdateProduct(quantityValue, initialQuantity, content.id);
 
   return (
     <div>
@@ -30,12 +32,9 @@ export const IsInCart: React.FC<IsInCart> = ({ content, icon }) => {
           itemInCart={itemInCart.quantity}
           children={quantityValue}
           size="medium"
-          onClick={(event) => {
-            event.stopPropagation();
-            event.preventDefault();
-          }}
           onMinusClick={onMinusClick}
           onPlusClick={onPlusClick}
+          stock={content.stock}
         />
       ) : (
         <div>
@@ -44,15 +43,17 @@ export const IsInCart: React.FC<IsInCart> = ({ content, icon }) => {
               type="myBtnIcon"
               view="icon"
               size="small"
-              onClick={(event) => {
-                event.stopPropagation();
-                event.preventDefault();
-              }}
+              onClick={addProduct}
             >
               <img src={img} alt="" />
             </Button>
           ) : (
-            <Button type="myBtnText" view="text" size="big">
+            <Button
+              type="myBtnText"
+              view="text"
+              size="big"
+              onClick={addProduct}
+            >
               Add to cart
             </Button>
           )}
