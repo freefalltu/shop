@@ -13,6 +13,11 @@ export const NavBar = () => {
   const [menuActive, setMenuActive] = useState(false);
   const { data: currentUser } = useGetCurrentUserQuery();
 
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    window.location.href = "/login";
+  };
+
   return (
     <nav className={cl.header}>
       <div className={cl.container}>
@@ -48,11 +53,11 @@ export const NavBar = () => {
             )}
           </Link>
           <Link to="#">
-            <p className={cl.btn}>
+            <button className={cn(cl.btn, cl.btnLogout)} onClick={handleLogout}>
               {currentUser?.firstName}
               {` `}
               {currentUser?.lastName}
-            </p>
+            </button>
           </Link>
         </nav>
       </div>

@@ -22,7 +22,7 @@ export const LoginPage = () => {
         await loginUser({
           username: username,
           password: password,
-          expiresInMins: 1,
+          expiresInMins: 30,
         }).unwrap();
       } catch (err) {
         console.error("Login failed:", err);
