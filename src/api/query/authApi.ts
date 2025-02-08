@@ -32,7 +32,7 @@ export const authApi = createApi({
         },
         body: JSON.stringify(body),
       }),
-      async onQueryStarted(arg, { queryFulfilled }) {
+      async onQueryStarted(_, { queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
           localStorage.setItem("accessToken", data.accessToken);
