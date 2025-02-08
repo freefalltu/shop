@@ -1,44 +1,48 @@
-import {
-  BaseQueryFn,
-  createApi,
-  FetchArgs,
-  fetchBaseQuery,
-} from "@reduxjs/toolkit/query/react";
-import { LoginUser } from "models/LoginUser";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { LoginResponse } from "models/LoginResponse";
+import { LoginRequest } from "models/LoginRequest";
 
 const baseUrl: string = import.meta.env.VITE_API_BASE_URL;
 
-export interface CustomError {
-  status: number;
-}
+const baseQuery = fetchBaseQuery({
+  baseUrl: baseUrl,
+  prepareHeaders: (headers) => {
+    const token = localStorage.getItem("accessToken");
+    if (token) headers.set("Authorization", `Bearer ${token}`);
+    return headers;
+  },
+});
 
 export const authApi = createApi({
   reducerPath: "authApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl: baseUrl,
-    prepareHeaders: (headers) => {
-      const token = localStorage.getItem("token");
-      if (token) {
-        headers.set("Authorization", `Bearer ${token}`);
-      }
-      return headers;
-    },
-  }) as BaseQueryFn<string | FetchArgs, unknown, CustomError, object>,
+  baseQuery: async (args, api, extraOptions) => {
+    const result = await baseQuery(args, api, extraOptions);
+    if (result.error?.status === 401 && args.url !== "/login") {
+      localStorage.removeItem("accessToken");
+    }
+    return result;
+  },
   endpoints: (build) => ({
-    loginUser: build.mutation<
-      LoginUser,
-      { username: string; password: string; expiresInMins: number }
-    >({
+    loginUser: build.mutation<LoginResponse, LoginRequest>({
       query: (body) => ({
         url: "auth/login",
         method: "POST",
         headers: {
           "Content-type": "application/json",
         },
-        body: body,
+        body: JSON.stringify(body),
       }),
+      async onQueryStarted(arg, { queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+          localStorage.setItem("accessToken", data.accessToken);
+          window.location.href = "/";
+        } catch (error) {
+          console.error("Login Failed:", error);
+        }
+      },
     }),
-    getCurrentUser: build.query<LoginUser, void>({
+    getCurrentUser: build.query<LoginResponse, void>({
       query: () => "auth/me",
     }),
   }),

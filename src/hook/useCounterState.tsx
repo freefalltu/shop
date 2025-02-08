@@ -14,9 +14,9 @@ const useCounterState = (
   const onMinusClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
     event.preventDefault();
-    if (quantityValue > 0) {
-      setQuantityValue((value) => (value -= 1));
-    } else if (quantityValue === 0) {
+    if (quantityValue > 1) {
+      setQuantityValue((value) => value - 1);
+    } else if (quantityValue === 1) {
       setQuantityValue(0);
       dispatch(
         fetchUpdateCart({
@@ -32,8 +32,14 @@ const useCounterState = (
     event.stopPropagation();
     event.preventDefault();
     if (quantityValue < stock) {
-      setQuantityValue((value) => (value += 1));
+      setQuantityValue((value) => value + 1);
     }
+  };
+
+  const onPlusClickInCart = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    event.preventDefault();
+    setQuantityValue((value) => value + 1);
   };
 
   const addProduct = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -64,6 +70,7 @@ const useCounterState = (
     onPlusClick,
     addProduct,
     handleDelete,
+    onPlusClickInCart,
     quantityValue,
   };
 };

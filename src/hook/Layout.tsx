@@ -1,26 +1,19 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { Footer } from "components/footer";
 import { NavBar } from "components/navbar";
-import { useGetCurrentUserQuery, CustomError } from "api/query/authApi";
-import { useEffect } from "react";
+import { useGetCurrentUserQuery } from "api/query/authApi";
 
 const Layout = () => {
-  const { error, isLoading } = useGetCurrentUserQuery();
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (
-      (error as CustomError)?.status === 401 ||
-      (error as CustomError)?.status === 403
-    ) {
-      localStorage.removeItem("token");
-      navigate("/login");
-    }
-  }, [error, navigate]);
+  const { isLoading, isError } = useGetCurrentUserQuery(undefined, {
+    skip: !localStorage.getItem("accessToken"),
+  });
 
   if (isLoading) {
     return <div className="loader" />;
+  }
+
+  if (isError || !localStorage.getItem("accessToken")) {
+    return <Navigate to="/login" replace />;
   }
 
   return (

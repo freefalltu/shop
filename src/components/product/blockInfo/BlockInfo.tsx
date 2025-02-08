@@ -40,7 +40,7 @@ export const BlockInfo: React.FC<BlockInfoProps> = ({ content }) => {
           <p className={cl.discount}>Your discount:</p>
           <p className={cl.discountPercent}>{content.discountPercentage}%</p>
         </div>
-        <IsInCart content={content} icon={false} />
+        <IsInCart content={content} icon={false} isCart={false} />
       </div>
     </div>
   );

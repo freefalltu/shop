@@ -6,7 +6,6 @@ import { Button } from "UI/button";
 import { Input } from "UI/input";
 import { Title } from "UI/title";
 import { useLoginUserMutation } from "api/query/authApi";
-import { useNavigate } from "react-router-dom";
 import { Text } from "UI/text";
 
 export const LoginPage = () => {
@@ -16,21 +15,17 @@ export const LoginPage = () => {
   const [emptyInputField, setEmptyInputField] = useState<boolean>(false);
   const [loginUser, { isLoading }] = useLoginUserMutation();
 
-  const navigate = useNavigate();
-
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (username && password) {
       try {
-        const result = await loginUser({
-          username,
-          password,
-          expiresInMins: 30,
+        await loginUser({
+          username: username,
+          password: password,
+          expiresInMins: 1,
         }).unwrap();
-        localStorage.setItem("token", result.accessToken);
-        navigate("/");
       } catch (err) {
-        alert(`Error ${err}`);
+        console.error("Login failed:", err);
       }
     } else {
       setEmptyInputField(true);

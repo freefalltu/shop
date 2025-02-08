@@ -24,6 +24,7 @@
       "img/*": ["img/*"],
       "models/*": ["models/*"],
       "pages/*": ["pages/*"],
+      "redirect/*": ["redirect/*"],
       "store/*": ["store/*"],
       "style/*": ["style/*"],
       "UI/*": ["UI/*"],

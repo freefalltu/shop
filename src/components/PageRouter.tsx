@@ -5,6 +5,7 @@ import { LoginPage } from "pages/LoginPage";
 import { NotfoundPage } from "pages/NotfoundPage";
 import { ProductPage } from "pages/ProductPage";
 import { Navigate, Route, Routes } from "react-router-dom";
+import { LoginRedirectHandler } from "redirect";
 
 const PageRouter = () => {
   return (
@@ -16,7 +17,15 @@ const PageRouter = () => {
         <Route path="notFoundPage" element={<NotfoundPage />} />
         <Route path="*" element={<Navigate to="notFoundPage" replace />} />
       </Route>
-      <Route path="/login" element={<LoginPage />} />
+      <Route
+        path="/login"
+        element={
+          <>
+            <LoginRedirectHandler />
+            <LoginPage />
+          </>
+        }
+      />
     </Routes>
   );
 };

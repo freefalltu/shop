@@ -61,7 +61,7 @@ export const CartItem: React.FC<CartItemProps> = ({ content }) => {
             </div>
           </div>
           <div className={cl.buttonContainer}>
-            <IsInCart content={content} icon={true} />
+            <IsInCart content={content} icon={true} isCart={true} />
             <span className={cl.productDelete} onClick={handleDelete}>
               Delete
             </span>
