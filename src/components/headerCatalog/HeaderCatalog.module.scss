@@ -53,6 +53,15 @@
 }
 
 /* ----------MEDIA------------ */
+@media (min-width: 2000px) and (max-width: 2700px) {
+    .title {
+        margin-top: 3%;
+    }
+    .textBack {
+        top: 5vw;
+        left: 5vw;
+    }
+}
 
 @media (min-width: 992px) and (max-width: 1249px) {
     .textBack {
