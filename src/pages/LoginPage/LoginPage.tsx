@@ -7,8 +7,12 @@ import { Input } from "UI/input";
 import { Title } from "UI/title";
 import { useLoginUserMutation } from "api/query/authApi";
 import { Text } from "UI/text";
+import { Navigate } from "react-router-dom";
 
 export const LoginPage = () => {
+  if (localStorage.getItem("accessToken")) {
+    return <Navigate to="/" replace />;
+  }
   useTitle("Sign in | Goods4you");
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
