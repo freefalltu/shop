@@ -7,7 +7,6 @@ import { IsInCart } from "../isInCart";
 import { useAppSelector } from "hook/redux";
 import { CartItemDisable } from "../cartItemDisable";
 import useCounterState from "hook/useCounterState";
-import { useUpdateProduct } from "hook/useUpdateProduct";
 
 interface CartItemProps {
   content: IProduct;
@@ -31,11 +30,9 @@ export const CartItem: React.FC<CartItemProps> = ({ content }) => {
     content.stock,
   );
 
-  useUpdateProduct(quantityValue, initialQuantity, content.id);
-
   return (
     <Link className={cl.title} to={`/product/${content.id}`}>
-      {quantityValue < 1 ? (
+      {quantityValue === 0 ? (
         <CartItemDisable content={content} />
       ) : (
         <div className={cl.product}>

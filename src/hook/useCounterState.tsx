@@ -45,6 +45,7 @@ const useCounterState = (
   const addProduct = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
     event.preventDefault();
+    setQuantityValue(1);
     dispatch(
       fetchUpdateCart({
         id: carts.id,
@@ -56,6 +57,7 @@ const useCounterState = (
   const handleDelete = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
     event.preventDefault();
+    setQuantityValue(0);
     dispatch(
       fetchUpdateCart({
         id: carts.id,
