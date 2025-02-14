@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import cl from "./NavBar.module.scss";
 import cn from "classnames";
 import counter from "img/icon-cart.svg";
@@ -10,10 +10,11 @@ export const NavBar = () => {
   const { carts } = useAppSelector((state) => state.userSlice);
   const [menuActive, setMenuActive] = useState(false);
   const { data: currentUser } = useGetCurrentUserQuery();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
-    window.location.href = "/login";
+    navigate("/login");
   };
 
   return (
@@ -35,10 +36,7 @@ export const NavBar = () => {
           <Link className={cl.btn} to="/#FAQ">
             FAQ
           </Link>
-          <Link
-            className={cl.btnCart}
-            to="/cart"
-          >
+          <Link className={cl.btnCart} to="/cart">
             <span>Cart</span>
             <img className={cl.img} src={counter} alt="" />
             {carts?.totalQuantity && carts?.totalQuantity > 0 ? (
@@ -47,13 +45,10 @@ export const NavBar = () => {
               <div />
             )}
           </Link>
-          <Link to="#">
-            <button className={cn(cl.btn, cl.btnLogout)} onClick={handleLogout}>
-              {currentUser?.firstName}
-              {` `}
-              {currentUser?.lastName}
-            </button>
-          </Link>
+          <button className={cn(cl.btn, cl.btnLogout)} onClick={handleLogout}>
+            {currentUser?.firstName}&nbsp;
+            {currentUser?.lastName}
+          </button>
         </nav>
       </div>
     </nav>

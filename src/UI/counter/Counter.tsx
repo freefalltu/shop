@@ -41,7 +41,10 @@ export const Counter: React.FC<CounterProps> = ({
           className={cl[size]}
           type="myBtnIconDisabled"
           view="icon"
-          onClick={onPlusClick}
+          onClick={(event) => {
+            event.stopPropagation();
+            event.preventDefault();
+          }}
         >
           <div className={cl.plus} />
         </Button>
