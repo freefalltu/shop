@@ -16,6 +16,13 @@
     justify-content: space-between;
 }
 
+.itemContainerDisabled {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    opacity: 70%;
+}
+
 .image {
     width: 5.5rem;
     height: 5.5rem;

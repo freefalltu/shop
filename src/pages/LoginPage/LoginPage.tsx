@@ -1,0 +1,81 @@
+import cl from "./LoginPage.module.scss";
+import { LoginHeader } from "components/loginHeader";
+import useTitle from "hook/useTitle";
+import { useState } from "react";
+import { Button } from "UI/button";
+import { Input } from "UI/input";
+import { Title } from "UI/title";
+import { useLoginUserMutation } from "api/query/authApi";
+import { Text } from "UI/text";
+import { Navigate } from "react-router-dom";
+
+export const LoginPage = () => {
+  if (localStorage.getItem("accessToken")) {
+    return <Navigate to="/" replace />;
+  }
+  useTitle("Sign in | Goods4you");
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [emptyInputField, setEmptyInputField] = useState<boolean>(false);
+  const [loginUser, { isLoading }] = useLoginUserMutation();
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (username && password) {
+      try {
+        await loginUser({
+          username: username,
+          password: password,
+          expiresInMins: 30,
+        }).unwrap();
+      } catch (err) {
+        console.error("Login failed:", err);
+      }
+    } else {
+      setEmptyInputField(true);
+    }
+  };
+
+  return (
+    <div>
+      <LoginHeader />
+      <div className={cl.container}>
+        <Title tag="h1" fontWeight="Bold" fontSize="xxl" className={cl.title}>
+          Sign in
+        </Title>
+        <div className={cl.box}>
+          <Input
+            className={cl.input}
+            placeholder="Login"
+            value={username}
+            type="text"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <Input
+            className={cl.input}
+            placeholder="Password"
+            value={password}
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          {emptyInputField ? (
+            <Text tag="span" className={cl.emptyInputField}>
+              Заполните пустые поля
+            </Text>
+          ) : (
+            <div />
+          )}
+          <Button
+            type="myBtnText"
+            view="text"
+            size="small"
+            className={cl.button}
+            onClick={handleLogin}
+          >
+            {isLoading ? "Logging in..." : "Sign in"}
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+};

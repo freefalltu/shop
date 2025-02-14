@@ -12,6 +12,7 @@ export default defineConfig({
       img: "/src/img",
       models: "/src/models",
       pages: "/src/pages",
+      redirect: "/src/redirect",
       store: "/src/store",
       style: "/src/style",
       UI: "/src/UI",

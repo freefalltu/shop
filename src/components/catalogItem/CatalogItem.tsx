@@ -36,7 +36,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ content }) => {
             ${(content.price - discount).toFixed(1)}
           </Text>
         </div>
-        <IsInCart content={content} icon={true} />
+        <IsInCart content={content} icon={true} isCart={false} />
       </div>
     </div>
   );

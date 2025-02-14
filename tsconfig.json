@@ -24,6 +24,7 @@
       "img/*": ["img/*"],
       "models/*": ["models/*"],
       "pages/*": ["pages/*"],
+      "redirect/*": ["redirect/*"],
       "store/*": ["store/*"],
       "style/*": ["style/*"],
       "UI/*": ["UI/*"],
@@ -35,7 +36,8 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src"
+    "src",
+    "test"
   ],
   "references": [
     {

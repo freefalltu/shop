@@ -1,15 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import cl from "./NavBar.module.scss";
 import cn from "classnames";
 import counter from "img/icon-cart.svg";
-import { resetProducts } from "store/reducers/productSlice";
-import { useAppDispatch, useAppSelector } from "hook/redux";
+import { useAppSelector } from "hook/redux";
 import { useState } from "react";
+import { useGetCurrentUserQuery } from "api/query/authApi";
 
 export const NavBar = () => {
-  const dispatch = useAppDispatch();
   const { carts } = useAppSelector((state) => state.userSlice);
   const [menuActive, setMenuActive] = useState(false);
+  const { data: currentUser } = useGetCurrentUserQuery();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    navigate("/login");
+  };
 
   return (
     <nav className={cl.header}>
@@ -30,24 +36,19 @@ export const NavBar = () => {
           <Link className={cl.btn} to="/#FAQ">
             FAQ
           </Link>
-          <Link
-            className={cl.btnCart}
-            to="cart"
-            onClick={() => {
-              dispatch(resetProducts());
-            }}
-          >
+          <Link className={cl.btnCart} to="/cart">
             <span>Cart</span>
             <img className={cl.img} src={counter} alt="" />
-            {carts?.totalQuantity > 0 ? (
+            {carts?.totalQuantity && carts?.totalQuantity > 0 ? (
               <div className={cl.counter}>{carts.totalQuantity}</div>
             ) : (
               <div />
             )}
           </Link>
-          <a className={cl.btn} href="#">
-            Johnson Smith
-          </a>
+          <button className={cn(cl.btn, cl.btnLogout)} onClick={handleLogout}>
+            {currentUser?.firstName}&nbsp;
+            {currentUser?.lastName}
+          </button>
         </nav>
       </div>
     </nav>

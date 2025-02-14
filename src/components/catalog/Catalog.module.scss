@@ -61,6 +61,18 @@ a {
 
 /* ----------MEDIA------------ */
 
+@media (min-width: 2400px) and (max-width: 2700px) {
+    .content{
+        grid-template-columns: repeat(5, 370px);
+    }
+}
+
+@media (min-width: 1900px) and (max-width: 2399px) {
+    .content{
+        grid-template-columns: repeat(4, 370px);
+    }
+}
+
 @media (min-width: 992px) and (max-width: 1400px) {
     .content{
         grid-template-columns: repeat(2, 23rem);

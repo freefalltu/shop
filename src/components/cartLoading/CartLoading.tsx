@@ -1,7 +1,11 @@
+import { useGetCurrentUserQuery } from "api/query/authApi";
 import { useCartLoading } from "hook/useCartLoading";
 
 export const CartLoading = () => {
-  useCartLoading(11);
+  const { data: currentUser } = useGetCurrentUserQuery();
+  const currentUserId: number = currentUser?.id ?? 0;
+
+  useCartLoading(currentUserId);
 
   return null;
 };

@@ -8,7 +8,7 @@ interface ButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   view?: "text" | "icon";
   size?: "big" | "small";
-  type: "myBtnIcon" | "myBtnText" | "myBtnTextDisabled";
+  type: "myBtnIcon" | "myBtnIconDisabled" | "myBtnText" | "myBtnTextDisabled";
   loading?: boolean;
 }
 
